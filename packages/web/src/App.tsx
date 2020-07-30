@@ -1,6 +1,8 @@
 import React from 'react'
-import { render } from 'react-dom'
+import reactDOM from 'react-dom'
 import { GlobalStyle } from './styles/GlobalStyle'
+
+import Home from './pages/Home'
 
 const mainElement = document.createElement('div')
 mainElement.setAttribute('id', 'root')
@@ -9,10 +11,10 @@ document.body.appendChild(mainElement)
 const App = () => {
   return (
     <>
-      <h1>Teste</h1>
+      <Home />
       <GlobalStyle />
     </>
   )
 }
 
-render(<App />, mainElement)
+reactDOM.render(<App />, mainElement)

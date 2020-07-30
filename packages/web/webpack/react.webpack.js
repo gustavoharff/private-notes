@@ -36,6 +36,6 @@ module.exports = {
     publicPath: './'
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({ title: 'My Notes'})
   ]
 }

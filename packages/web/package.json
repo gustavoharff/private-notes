@@ -1,7 +1,7 @@
 {
-  "name": "my-notes",
-  "version": "1.0.0",
-  "description": "Annotations.",
+  "name": "my-note-app",
+  "version": "0.0.2",
+  "description": "Some notes",
   "main": "./dist/main.js",
   "scripts": {
     "dev": "npm-run-all -p dev:react electron:serve",

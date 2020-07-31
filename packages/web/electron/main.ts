@@ -1,12 +1,18 @@
-import { app, BrowserWindow } from 'electron'
+import { app, nativeImage, BrowserWindow } from 'electron'
 import * as path from 'path'
 import * as url from 'url'
-import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer'
 
 let mainWindow: Electron.BrowserWindow | null
 
 function createWindow () {
+  const icon = nativeImage.createFromPath(`${app.getAppPath()}/src/assets/icon.png`)
+
+  if (app.dock) {
+    app.dock.setIcon(icon)
+  }
+
   mainWindow = new BrowserWindow({
+    icon,
     width: 1100,
     height: 700,
     backgroundColor: '#191622',
@@ -34,15 +40,5 @@ function createWindow () {
 }
 
 app.on('ready', createWindow)
-  .whenReady()
-  .then(() => {
-    if (process.env.NODE_ENV === 'development') {
-      installExtension(REACT_DEVELOPER_TOOLS)
-        .then((name) => console.log(`Added Extension:  ${name}`))
-        .catch((err) => console.log('An error occurred: ', err))
-      installExtension(REDUX_DEVTOOLS)
-        .then((name) => console.log(`Added Extension:  ${name}`))
-        .catch((err) => console.log('An error occurred: ', err))
-    }
-  })
+
 app.allowRendererProcessReuse = true

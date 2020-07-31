@@ -1,6 +1,6 @@
 import React from 'react'
 import reactDOM from 'react-dom'
-import { Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import { GlobalStyle } from './styles/GlobalStyle'
 
@@ -13,10 +13,10 @@ document.body.appendChild(mainElement)
 
 const App: React.FC = () => {
   return (
-    <Router history={history}>
+    <BrowserRouter >
       <Routes />
       <GlobalStyle />
-    </Router>
+    </BrowserRouter>
   )
 }
 

@@ -12,7 +12,8 @@ function createWindow () {
     backgroundColor: '#191622',
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    resizable: false
   })
 
   if (process.env.NODE_ENV === 'development') {

@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { GlobalStyle } from './styles/GlobalStyle'
 
-import history from './services/history'
 import Routes from './routes'
 
 const mainElement = document.createElement('div')

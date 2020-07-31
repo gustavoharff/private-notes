@@ -8,7 +8,7 @@ const Routes: React.FC = () => {
   return (
     <HashRouter>
       <Route path="/" exact component={Home} />
-      <Route path="/notes" exact component={Notes} />
+      <Route path="/notes" component={Notes} />
     </HashRouter>
   )
 }

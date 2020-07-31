@@ -1,13 +1,58 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { TiArrowLeft } from 'react-icons/ti'
 import { Link } from 'react-router-dom'
-// import { Container } from './styles';
+
+import { Container, Title, Text } from './styles'
 
 const Notes: React.FC = () => {
+  const [title, setTitle] = useState(() => {
+    const storagedTitle = localStorage.getItem('@Notes:title')
+
+    if (storagedTitle) {
+      return JSON.parse(storagedTitle)
+    } else {
+      return ''
+    }
+  })
+
+  const [content, setContent] = useState(() => {
+    const storagedContent = localStorage.getItem('@Notes:content')
+
+    if (storagedContent) {
+      return JSON.parse(storagedContent)
+    } else {
+      return ''
+    }
+  })
+
+  useEffect(() => {
+    localStorage.setItem('@Notes:title', JSON.stringify(title))
+  }, [title])
+
+  useEffect(() => {
+    localStorage.setItem('@Notes:content', JSON.stringify(content))
+  }, [content])
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value)
+  }
+
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(event.target.value)
+  }
+
   return (
-    <>
-      <h1>Notes</h1>
-      <Link to="/">Go back</Link>
-    </>
+    <Container>
+      <div>
+        <Link to="/">
+          <TiArrowLeft size={30}/>
+        </Link>
+
+        <Title placeholder="Digite o título" onChange={handleTitleChange} value={title} />
+      </div>
+
+      <Text maxLength={3800} onChange={handleTextChange} value={content} />
+    </Container>
   )
 }
 

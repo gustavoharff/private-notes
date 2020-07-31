@@ -1,32 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-
-import { Container } from './styles'
+import { Container, Content } from './styles'
 
 const Home: React.FC = () => {
-  const [content, setContent] = useState(() => {
-    const storagedContent = localStorage.getItem('@Notes:content')
-
-    if (storagedContent) {
-      return JSON.parse(storagedContent)
-    } else {
-      return ''
-    }
-  })
-
-  useEffect(() => {
-    localStorage.setItem('@Notes:content', JSON.stringify(content))
-  }, [content])
-
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(event.target.value)
-  }
-
   return (
-    <>
-      <Link to="/notes">Tste</Link>
-      <Container maxLength={3800} onChange={handleChange} value={content} />
-    </>
+    <Container>
+      <div>
+        <h1>Welcome to My Note App</h1>
+      </div>
+
+      <div>
+        <h3>This application does not save content in the cloud!</h3>
+        <Content>
+          <Link to="/notes">
+            <h2>Go to notes</h2>
+          </Link>
+        </Content>
+      </div>
+    </Container>
   )
 }
 

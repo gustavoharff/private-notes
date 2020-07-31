@@ -1,4 +1,4 @@
-## My Notes
+## My Note App
 Note taking application developed with React, Electron and Typescript.
 
 ## Installation

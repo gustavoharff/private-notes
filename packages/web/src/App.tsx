@@ -1,19 +1,22 @@
 import React from 'react'
 import reactDOM from 'react-dom'
+import { Router } from 'react-router-dom'
+
 import { GlobalStyle } from './styles/GlobalStyle'
 
-import Home from './pages/Home'
+import history from './services/history'
+import Routes from './routes'
 
 const mainElement = document.createElement('div')
 mainElement.setAttribute('id', 'root')
 document.body.appendChild(mainElement)
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <>
-      <Home />
+    <Router history={history}>
+      <Routes />
       <GlobalStyle />
-    </>
+    </Router>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Container } from './styles'
 
@@ -21,7 +22,12 @@ const Home: React.FC = () => {
     setContent(event.target.value)
   }
 
-  return <Container maxLength={3800} onChange={handleChange} value={content} />
+  return (
+    <>
+      <Link to="/notes">Tste</Link>
+      <Container maxLength={3800} onChange={handleChange} value={content} />
+    </>
+  )
 }
 
 export default Home

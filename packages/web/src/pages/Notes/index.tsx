@@ -46,7 +46,7 @@ const Notes: React.FC = () => {
   return (
     <Container>
       <div>
-        <Link to="/">
+        <Link to="/dashboard">
           <TiArrowLeft size={30} />
         </Link>
 

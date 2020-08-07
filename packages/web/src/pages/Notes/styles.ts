@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { darken } from 'polished'
+import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   div {
@@ -15,7 +15,7 @@ export const Container = styled.div`
       }
     }
   }
-`
+`;
 
 export const Title = styled.input`
   display: block;
@@ -31,7 +31,7 @@ export const Title = styled.input`
   &:focus {
     outline: none;
   }
-`
+`;
 
 export const Text = styled.textarea`
   margin: 20px auto;
@@ -55,4 +55,4 @@ export const Text = styled.textarea`
   &:focus {
     outline: none;
   }
-`
+`;

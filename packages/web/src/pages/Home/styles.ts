@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import { darken } from 'polished'
+import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   height: 590px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 export const Content = styled.div`
   display: flex;
@@ -21,4 +21,4 @@ export const Content = styled.div`
       color: ${darken(0.3, '#fff')};
     }
   }
-`
+`;

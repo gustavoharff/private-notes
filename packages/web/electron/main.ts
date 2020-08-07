@@ -1,14 +1,16 @@
-import { app, nativeImage, BrowserWindow } from 'electron'
-import * as path from 'path'
-import * as url from 'url'
+import { app, nativeImage, BrowserWindow } from 'electron';
+import * as path from 'path';
+import * as url from 'url';
 
-let mainWindow: Electron.BrowserWindow | null
+let mainWindow: Electron.BrowserWindow | null;
 
-function createWindow () {
-  const icon = nativeImage.createFromPath(`${app.getAppPath()}/src/assets/icon.png`)
+function createWindow() {
+  const icon = nativeImage.createFromPath(
+    `${app.getAppPath()}/src/assets/icon.png`,
+  );
 
   if (app.dock) {
-    app.dock.setIcon(icon)
+    app.dock.setIcon(icon);
   }
 
   mainWindow = new BrowserWindow({
@@ -17,28 +19,31 @@ function createWindow () {
     height: 700,
     backgroundColor: '#191622',
     webPreferences: {
-      nodeIntegration: true
+      webSecurity: false,
+      nodeIntegration: true,
     },
-    resizable: false
-  })
+    resizable: false,
+  });
 
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.loadURL('http://localhost:4000')
-  } else {
-    mainWindow.loadURL(
-      url.format({
-        pathname: path.join(__dirname, 'renderer/index.html'),
-        protocol: 'file:',
-        slashes: true
-      })
-    )
-  }
+  mainWindow.loadURL('http://localhost:4000');
+
+  // if (process.env.NODE_ENV === 'development') {
+  //   mainWindow.loadURL('http://localhost:4000');
+  // } else {
+  //   mainWindow.loadURL(
+  //     url.format({
+  //       pathname: path.join(__dirname, 'renderer/index.html'),
+  //       protocol: 'file:',
+  //       slashes: true,
+  //     }),
+  //   );
+  // }
 
   mainWindow.on('closed', () => {
-    mainWindow = null
-  })
+    mainWindow = null;
+  });
 }
 
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
-app.allowRendererProcessReuse = true
+app.allowRendererProcessReuse = true;

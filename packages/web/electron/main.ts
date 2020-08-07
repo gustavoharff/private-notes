@@ -22,7 +22,7 @@ function createWindow(): void {
       webSecurity: false,
       nodeIntegration: true,
     },
-    resizable: true,
+    resizable: false,
   });
 
   mainWindow.loadURL('http://localhost:4000');

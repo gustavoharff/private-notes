@@ -4,7 +4,7 @@ import { darken } from 'polished';
 export const Container = styled.div``;
 
 export const CenterContent = styled.div`
-  height: 590px;
+  height: 617px;
   display: flex;
   flex-direction: column;
   width: 100%;

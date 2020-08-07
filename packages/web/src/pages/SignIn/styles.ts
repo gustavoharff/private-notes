@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  height: 590px;
+  height: 677px;
   display: flex;
   width: 100%;
   flex: 1;

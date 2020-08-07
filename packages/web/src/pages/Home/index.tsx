@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import logo from '../../assets/icon.png';
+
 import { Container, Content } from './styles';
 
 const Home: React.FC = () => {
@@ -16,10 +18,9 @@ const Home: React.FC = () => {
   return (
     <Container>
       <div>
+        <img src={logo} alt="My Note App" />
         <h1>Welcome to My Note App</h1>
-      </div>
 
-      <div>
         <h3>This application does not save content in the cloud!</h3>
         <Content>
           <Link to="/notes">

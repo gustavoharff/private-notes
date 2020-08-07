@@ -4,8 +4,20 @@ import { darken } from 'polished';
 export const Container = styled.div`
   height: 590px;
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  flex: 1;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  img {
+    padding: 30px;
+    margin: auto;
+  }
+
+  h1 {
+    padding: 20px;
+  }
 `;
 
 export const Content = styled.div`

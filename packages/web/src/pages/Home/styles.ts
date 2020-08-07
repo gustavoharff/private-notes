@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
+export const Container = styled.div``;
+
+export const CenterContent = styled.div`
   height: 590px;
   display: flex;
+  flex-direction: column;
   width: 100%;
   flex: 1;
   align-items: center;
@@ -12,7 +15,6 @@ export const Container = styled.div`
 
   img {
     padding: 30px;
-    margin: auto;
   }
 
   h1 {

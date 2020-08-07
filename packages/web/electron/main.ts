@@ -4,7 +4,7 @@ import * as url from 'url';
 
 let mainWindow: Electron.BrowserWindow | null;
 
-function createWindow() {
+function createWindow(): void {
   const icon = nativeImage.createFromPath(
     `${app.getAppPath()}/src/assets/icon.png`,
   );
@@ -22,20 +22,22 @@ function createWindow() {
       webSecurity: false,
       nodeIntegration: true,
     },
-    resizable: false,
+    resizable: true,
   });
 
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.loadURL('http://localhost:4000');
-  } else {
-    mainWindow.loadURL(
-      url.format({
-        pathname: path.join(__dirname, 'renderer/index.html'),
-        protocol: 'file:',
-        slashes: true,
-      }),
-    );
-  }
+  mainWindow.loadURL('http://localhost:4000');
+
+  // if (process.env.NODE_ENV === 'development') {
+  //   mainWindow.loadURL('http://localhost:4000');
+  // } else {
+  //   mainWindow.loadURL(
+  //     url.format({
+  //       pathname: path.join(__dirname, 'renderer/index.html'),
+  //       protocol: 'file:',
+  //       slashes: true,
+  //     }),
+  //   );
+  // }
 
   mainWindow.on('closed', () => {
     mainWindow = null;

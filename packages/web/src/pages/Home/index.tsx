@@ -4,31 +4,24 @@ import axios from 'axios';
 
 import logo from '../../assets/icon.png';
 
-import { Container, Content } from './styles';
+import Header from '../../components/Header';
 
-const Home: React.FC = () => {
-  const [user, setUser] = useState({});
+import { Container, CenterContent, Content } from './styles';
 
-  useEffect(() => {
-    axios.get('https://api.github.com/user').then((res) => {
-      setUser(res.data);
-    });
-  }, []);
+const Home: React.FC = () => (
+  <Container>
+    <Header />
+    <CenterContent>
+      <img src={logo} alt="My Note App" />
+      <h1>Welcome to My Note App</h1>
 
-  return (
-    <Container>
-      <div>
-        <img src={logo} alt="My Note App" />
-        <h1>Welcome to My Note App</h1>
-
-        <h3>This application does not save content in the cloud!</h3>
-        <Content>
-          <Link to="/notes">
-            <h2>Go to notes</h2>
-          </Link>
-        </Content>
-      </div>
-    </Container>
-  );
-};
+      <h3>This application does not save content in the cloud!</h3>
+      <Content>
+        <Link to="/notes">
+          <h2>Go to notes</h2>
+        </Link>
+      </Content>
+    </CenterContent>
+  </Container>
+);
 export default Home;

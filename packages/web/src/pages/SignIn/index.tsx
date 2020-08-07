@@ -17,8 +17,8 @@ const SignIn: React.FC = () => {
         try {
           axios
             .post('https://github.com/login/oauth/access_token', {
-              client_id: '',
-              client_secret: '',
+              client_id: '8df98a9dba4aaa767ae5',
+              client_secret: '526c989f0fb69b065fcfd8118baefc42fe24afb2',
               code,
               redirect_uri: 'http://localhost:4000/dashboard',
             })

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  padding: 40px;
+
   div {
     display: flex;
     align-items: center;
@@ -21,6 +23,7 @@ export const Title = styled.input`
   display: block;
   width: 600px;
   margin: auto;
+  margin-left: 10px;
   padding: 10px;
   border: 0;
   background: none;

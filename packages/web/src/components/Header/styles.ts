@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   background: #0003;
@@ -14,7 +15,8 @@ export const Content = styled.div`
   justify-content: space-between;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
+  color: #fff;
   display: flex;
   align-items: center;
 

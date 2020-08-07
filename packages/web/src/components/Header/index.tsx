@@ -4,19 +4,17 @@ import { useHistory } from 'react-router-dom';
 
 import logo from '../../assets/icon.png';
 
-import {
- Container, Content, Logo, Profile
-} from './styles';
+import { Container, Content, Logo, Profile } from './styles';
 
 interface User {
-  name: string;
-  email: string;
-  avatar_url: string;
+  name?: string;
+  email?: string;
+  avatar_url?: string;
 }
 
 const Header: React.FC = () => {
   const history = useHistory();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<User>({});
 
   useEffect(() => {
     axios
@@ -30,7 +28,7 @@ const Header: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Logo>
+        <Logo to="/dashboard">
           <img src={logo} alt="" />
           <h3>My Note App</h3>
         </Logo>

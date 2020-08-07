@@ -23,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
   }
 
+  svg, img, a {
+    user-select: none;
+    -moz-window-dragging: none;
+    -webkit-user-drag: none;
+  }
+
   a {
     text-decoration: none;
   }

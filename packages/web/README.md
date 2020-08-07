@@ -1,5 +1,7 @@
 ## My Note App
-Note taking application developed with React, Electron and Typescript.
+![mynoteapp](https://raw.githubusercontent.com/gustavoharff/my-note-app/master/src/assets/icon.png)
+
+Notes application developed with React, Electron and Typescript.
 
 ## Installation
 Install the dependencies using:

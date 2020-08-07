@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { TiArrowLeft } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 
+import Header from '../../components/Header';
+
 import { Container, Title, Text } from './styles';
 
 const Notes: React.FC = () => {
@@ -44,21 +46,24 @@ const Notes: React.FC = () => {
   };
 
   return (
-    <Container>
-      <div>
-        <Link to="/dashboard">
-          <TiArrowLeft size={30} />
-        </Link>
+    <>
+      <Header />
+      <Container>
+        <div>
+          <Link to="/dashboard">
+            <TiArrowLeft size={30} />
+          </Link>
 
-        <Title
-          placeholder="Digite o título"
-          onChange={handleTitleChange}
-          value={title}
-        />
-      </div>
+          <Title
+            placeholder="Digite o título"
+            onChange={handleTitleChange}
+            value={title}
+          />
+        </div>
 
-      <Text maxLength={3800} onChange={handleTextChange} value={content} />
-    </Container>
+        <Text maxLength={3800} onChange={handleTextChange} value={content} />
+      </Container>
+    </>
   );
 };
 

@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  padding: 40px;
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  padding: 40px 40px 20px 40px;
 
   div {
     display: flex;
@@ -40,7 +43,7 @@ export const Text = styled.textarea`
   margin: 20px auto;
   padding: 50px;
   width: 900px;
-  height: 510px;
+  height: 470px;
   border-radius: 5px;
   background: #444;
 

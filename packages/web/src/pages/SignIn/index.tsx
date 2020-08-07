@@ -20,12 +20,10 @@ const SignIn: React.FC = () => {
               client_id: '8df98a9dba4aaa767ae5',
               client_secret: '526c989f0fb69b065fcfd8118baefc42fe24afb2',
               code,
-              redirect_uri: 'http://localhost:4000/dashboard',
             })
             .then((response) => {
               const [preToken] = response.data.split('&');
               const [access, token] = preToken.split('=');
-
               if (access === 'access_token') {
                 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
                 history.push('/dashboard');

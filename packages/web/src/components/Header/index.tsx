@@ -22,7 +22,7 @@ const Header: React.FC = () => {
       .then((response) => {
         setUser(response.data);
       })
-      .catch((err) => history.push('/'));
+      .catch((err) => console.log(err));
   }, []);
 
   return (

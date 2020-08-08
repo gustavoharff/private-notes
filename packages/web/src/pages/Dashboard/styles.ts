@@ -15,6 +15,8 @@ export const CenterContent = styled.div`
 
   img {
     padding: 30px;
+    width: 156px;
+    height: 156px;
   }
 
   h1 {

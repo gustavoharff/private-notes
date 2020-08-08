@@ -15,7 +15,7 @@
     "build:electron": "webpack --config webpack/electron.webpack.js --mode production",
     "build:react": "webpack --config webpack/react.webpack.js --mode production",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --dir",
+    "package:dist": "electron-builder --win --x64 --mac",
     "test": "jest"
   },
   "keywords": [],

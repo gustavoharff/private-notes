@@ -28,13 +28,7 @@ function createWindow(): void {
   if (process.env.NODE_ENV === 'development') {
     mainWindow.loadURL('http://localhost:4000');
   } else {
-    mainWindow.loadURL(
-      url.format({
-        pathname: path.join(__dirname, 'renderer/index.html'),
-        protocol: 'file:',
-        slashes: true,
-      }),
-    );
+    mainWindow.loadURL('https://my-note-app.netlify.app/#/');
   }
 
   mainWindow.on('closed', () => {

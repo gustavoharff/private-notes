@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 
 import { Container, CenterContent, Content } from './styles';
 
-const Home: React.FC = () => (
+const Dashboardo: React.FC = () => (
   <Container>
     <Header />
     <CenterContent>
@@ -23,4 +23,4 @@ const Home: React.FC = () => (
     </CenterContent>
   </Container>
 );
-export default Home;
+export default Dashboardo;

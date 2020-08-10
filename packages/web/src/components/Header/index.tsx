@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import logo from '../../assets/icon.png';
 
-import { Container, Content, Logo, Profile } from './styles';
+import { Container, Content, Logo, Profile } from './styles'; // eslint-disable-line
 
 interface User {
   name?: string;
@@ -22,7 +22,9 @@ const Header: React.FC = () => {
       .then((response) => {
         setUser(response.data);
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        history.push('/');
+      });
   }, []);
 
   return (

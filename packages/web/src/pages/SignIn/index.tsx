@@ -14,24 +14,20 @@ const SignIn: React.FC = () => {
       const [code] = preCode.split('#');
 
       if (code) {
-        try {
-          axios
-            .post('https://github.com/login/oauth/access_token', {
-              client_id: '8df98a9dba4aaa767ae5',
-              client_secret: '526c989f0fb69b065fcfd8118baefc42fe24afb2',
-              code,
-            })
-            .then((response) => {
-              const [preToken] = response.data.split('&');
-              const [access, token] = preToken.split('=');
-              if (access === 'access_token') {
-                axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-                history.push('/dashboard');
-              }
-            });
-        } catch (err) {
-          console.log(err);
-        }
+        axios
+          .post('https://github.com/login/oauth/access_token', {
+            client_id: '8df98a9dba4aaa767ae5',
+            client_secret: '526c989f0fb69b065fcfd8118baefc42fe24afb2',
+            code,
+          })
+          .then((response) => {
+            const [preToken] = response.data.split('&');
+            const [access, token] = preToken.split('=');
+            if (access === 'access_token') {
+              axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+              history.push('/dashboard');
+            }
+          });
       }
     } catch (err) {
       console.log(err);

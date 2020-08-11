@@ -1,5 +1,5 @@
 ## My Note App
-![mynoteapp](https://raw.githubusercontent.com/gustavoharff/my-note-app/master/src/assets/icon.png)
+![mynoteapp](https://raw.githubusercontent.com/gustavoharff/my-note-app/master/.github/icon.png)
 
 Notes application developed with React, Electron and Typescript.
 

@@ -24,7 +24,7 @@ export const Container = styled.div`
 
 export const Title = styled.input`
   display: block;
-  width: 600px;
+  width: 100%;
   margin: auto;
   margin-left: 10px;
   padding: 10px;
@@ -42,7 +42,7 @@ export const Title = styled.input`
 export const Text = styled.textarea`
   margin: 20px auto;
   padding: 50px;
-  width: 900px;
+  width: 100%;
   height: 470px;
   border-radius: 5px;
   background: #444;

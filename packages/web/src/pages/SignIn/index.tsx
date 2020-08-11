@@ -15,7 +15,7 @@ const SignIn: React.FC = () => {
       const [code] = preCode.split('#');
 
       axios
-        .post('http://localhost:3333/signin', { code })
+        .post('https://my-note-app-server.herokuapp.com/signin', { code })
         .then((response) => {
           axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           history.push('/dashboard');

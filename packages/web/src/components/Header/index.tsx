@@ -18,7 +18,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     axios
-      .post('http://localhost:3333/user', {
+      .post('https://my-note-app-server.herokuapp.com/user', {
         access_token: axios.defaults.headers.common.Authorization,
       })
       .then((response) => setUser(response.data))

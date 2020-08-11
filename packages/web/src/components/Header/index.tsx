@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       })
       .then((response) => setUser(response.data))
       .catch(() => history.push('/'));
-  }, []);
+  }, [user]);
 
   return (
     <Container>
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
               <strong>{user.name}</strong>
               <p>{user.email}</p>
             </div>
-            <img src={user.avatar_url} alt="" />
+            {user && <img src={user.avatar_url} alt="" />}
           </Profile>
         )}
       </Content>

@@ -16,8 +16,8 @@ const SignIn: React.FC = () => {
       if (code) {
         axios
           .post('https://github.com/login/oauth/access_token', {
-            client_id: '8df98a9dba4aaa767ae5',
-            client_secret: '526c989f0fb69b065fcfd8118baefc42fe24afb2',
+            client_id: 'Iv1.3901bbbc44d6de8f',
+            client_secret: '4540f36898dcf8614100904375a68b0c560f5f42',
             code,
           })
           .then((response) => {
@@ -36,7 +36,7 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
-      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=8df98a9dba4aaa767ae5">
+      <a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=Iv1.3901bbbc44d6de8f">
         <p>Login with GitHub</p>
         <AiFillGithub size={20} />
       </a>

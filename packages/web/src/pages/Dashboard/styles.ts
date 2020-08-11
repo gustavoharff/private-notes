@@ -17,22 +17,27 @@ export const Container = styled.div`
     height: 156px;
   }
 
-  h1 {
+  h1,
+  h3,
+  a {
     padding: 20px;
   }
-`;
-
-export const Content = styled.div`
-  display: flex;
 
   a {
-    margin-top: 50px;
-    text-decoration: none;
+    width: 250px;
+    height: 50px;
+    background: #2ebc4f;
     color: #fff;
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s;
 
     &:hover {
-      color: ${darken(0.3, '#fff')};
+      background: ${darken(0.3, '#2ebc4f')};
     }
   }
 `;

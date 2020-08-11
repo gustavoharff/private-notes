@@ -5,19 +5,19 @@ import logo from '../../assets/icon.png';
 
 import Header from '../../components/Header';
 
-import { Container, Content } from './styles';
+import { Container } from './styles';
 
 const Dashboard: React.FC = () => (
-  <Container>
+  <>
     <Header />
-    <Content>
+    <Container>
       <img src={logo} alt="My Note App" />
       <h1>Welcome to My Note App</h1>
 
       <h3>This application does not save content in the cloud!</h3>
 
       <Link to="/notes">Go to notes</Link>
-    </Content>
-  </Container>
+    </Container>
+  </>
 );
 export default Dashboard;

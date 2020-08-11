@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import { AiFillGithub } from 'react-icons/ai';
+import api from '../../services/api';
 
 import { Container } from './styles';
 
@@ -14,8 +15,8 @@ const SignIn: React.FC = () => {
       const [, preCode] = window.location.href.split('=');
       const [code] = preCode.split('#');
 
-      axios
-        .post('https://my-note-app-server.herokuapp.com/signin', { code })
+      api
+        .post('signin', { code })
         .then((response) => {
           axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           history.push('/dashboard');

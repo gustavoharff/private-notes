@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-import { useHistory } from 'react-router-dom';
+import api from '../../services/api';
+
 import logo from '../../assets/icon.png';
 
 import { Container, Content, Logo, Profile } from './styles'; // eslint-disable-line
@@ -17,13 +19,13 @@ const Header: React.FC = () => {
   const [user, setUser] = useState<User>({});
 
   useEffect(() => {
-    axios
-      .post('https://my-note-app-server.herokuapp.com/user', {
+    api
+      .post('user', {
         access_token: axios.defaults.headers.common.Authorization,
       })
       .then((response) => setUser(response.data))
       .catch(() => history.push('/'));
-  }, [user]);
+  }, []);
 
   return (
     <Container>

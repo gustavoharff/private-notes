@@ -30,14 +30,23 @@ export const Logo = styled(Link)`
   }
 `;
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
   display: flex;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 70%;
+  }
 
   div {
     text-align: right;
     margin-right: 10px;
+
     p {
       opacity: 0.7;
+      transition: 0.2s;
     }
   }
 

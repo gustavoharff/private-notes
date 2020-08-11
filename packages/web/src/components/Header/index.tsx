@@ -34,7 +34,7 @@ const Header: React.FC = () => {
           <img src={logo} alt="" />
           <h3>My Note App</h3>
         </Logo>
-        <Profile>
+        <Profile to="/profile">
           <div>
             <strong>{user.name}</strong>
             <p>{user.email}</p>

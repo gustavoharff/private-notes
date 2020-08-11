@@ -5,12 +5,12 @@ import logo from '../../assets/icon.png';
 
 import Header from '../../components/Header';
 
-import { Container, CenterContent, Content } from './styles';
+import { Container, Content } from './styles';
 
-const Dashboardo: React.FC = () => (
-  <Container>
+const Dashboard: React.FC = () => (
+  <>
     <Header />
-    <CenterContent>
+    <Container>
       <img src={logo} alt="My Note App" />
       <h1>Welcome to My Note App</h1>
 
@@ -20,7 +20,8 @@ const Dashboardo: React.FC = () => (
           <h2>Go to notes</h2>
         </Link>
       </Content>
-    </CenterContent>
-  </Container>
+    </Container>
+  </>
 );
-export default Dashboardo;
+
+export default Dashboard;

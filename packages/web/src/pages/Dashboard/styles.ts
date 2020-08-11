@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div``;
-
-export const CenterContent = styled.div`
+export const Container = styled.div`
   height: 617px;
   display: flex;
   flex-direction: column;

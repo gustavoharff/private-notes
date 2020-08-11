@@ -13,9 +13,9 @@ const Profile: React.FC = () => {
     <>
       <Header />
       <Container>
-        <a href="/" onClick={handleLogout}>
+        <Link to="/" onClick={handleLogout}>
           Sair do aplicativo
-        </a>
+        </Link>
       </Container>
     </>
   );

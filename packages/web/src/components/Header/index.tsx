@@ -32,13 +32,15 @@ const Header: React.FC = () => {
           <img src={logo} alt="" />
           <h3>My Note App</h3>
         </Logo>
-        <Profile to="/profile">
-          <div>
-            <strong>{user.name}</strong>
-            <p>{user.email}</p>
-          </div>
-          <img src={user.avatar_url} alt="" />
-        </Profile>
+        {user && (
+          <Profile to="/profile">
+            <div>
+              <strong>{user.name}</strong>
+              <p>{user.email}</p>
+            </div>
+            <img src={user.avatar_url} alt="" />
+          </Profile>
+        )}
       </Content>
     </Container>
   );

@@ -19,7 +19,6 @@ function createWindow(): void {
     height: 700,
     backgroundColor: '#191622',
     webPreferences: {
-      webSecurity: false,
       nodeIntegration: true,
     },
     resizable: false,

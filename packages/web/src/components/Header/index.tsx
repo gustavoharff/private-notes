@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 
+import { useHistory } from 'react-router-dom';
 import logo from '../../assets/icon.png';
 
 import { Container, Content, Logo, Profile } from './styles'; // eslint-disable-line
@@ -18,13 +18,11 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get('https://api.github.com/user')
-      .then((response) => {
-        setUser(response.data);
+      .post('http://localhost:3333/user', {
+        access_token: axios.defaults.headers.common.Authorization,
       })
-      .catch(() => {
-        history.push('/');
-      });
+      .then((response) => setUser(response.data))
+      .catch(() => history.push('/'));
   }, []);
 
   return (

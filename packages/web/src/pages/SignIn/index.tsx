@@ -15,16 +15,17 @@ const SignIn: React.FC = () => {
 
       if (code) {
         axios
-          .post('https://github.com/login/oauth/access_token', {
-            client_id: 'Iv1.3901bbbc44d6de8f',
-            client_secret: '4540f36898dcf8614100904375a68b0c560f5f42',
+          .post('http://localhost:3333/signin', {
             code,
           })
           .then((response) => {
-            const [preToken] = response.data.split('&');
-            const [access, token] = preToken.split('=');
-            if (access === 'access_token') {
-              axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+            const { token } = response.data;
+            axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+            if (
+              axios.defaults.headers.common.Authorization === 'Bearer undefined'
+            ) {
+              history.push('/');
+            } else {
               history.push('/dashboard');
             }
           });

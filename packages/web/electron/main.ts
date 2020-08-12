@@ -1,6 +1,4 @@
-import { app, nativeImage, BrowserWindow } from 'electron';
-import * as path from 'path';
-import * as url from 'url';
+import { app, nativeImage, BrowserWindow, session } from 'electron'; //eslint-disable-line
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -23,6 +21,8 @@ function createWindow(): void {
     },
     resizable: false,
   });
+
+  session.defaultSession.cookies.remove('https://github.com', 'user_session');
 
   if (process.env.NODE_ENV === 'development') {
     mainWindow.loadURL('http://localhost:4000');

@@ -8,7 +8,8 @@ export const Container = styled.div`
   justify-content: center;
   height: 617px;
 
-  a {
+  button {
+    border: 0;
     width: 250px;
     height: 50px;
     background: #d95151;
@@ -20,6 +21,7 @@ export const Container = styled.div`
     border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.2s;
+    font-size: 16px;
 
     &:hover {
       background: ${darken(0.3, '#D95151')};

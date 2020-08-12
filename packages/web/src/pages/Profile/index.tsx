@@ -1,21 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 
 import { Container } from './styles';
 
 const Profile: React.FC = () => {
   function handleLogout(): void {
-    console.log('Logout');
+    window.close();
   }
 
   return (
     <>
       <Header />
       <Container>
-        <Link to="/" onClick={handleLogout}>
+        <button type="button" onClick={handleLogout}>
           Sair do aplicativo
-        </Link>
+        </button>
       </Container>
     </>
   );

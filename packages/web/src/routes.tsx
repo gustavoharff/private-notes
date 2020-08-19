@@ -1,15 +1,16 @@
 import React from 'react';
 import { Route, HashRouter } from 'react-router-dom';
 
-import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import Notes from './pages/Notes';
 import Profile from './pages/Profile';
+import Header from './components/Header';
 
 const Routes: React.FC = () => (
   <HashRouter>
-    <Route path="/" exact component={SignIn} />
-    <Route path="/dashboard" component={Dashboard} />
+    <Header />
+
+    <Route path="/" exact component={Dashboard} />
     <Route path="/notes" component={Notes} />
     <Route path="/profile" component={Profile} />
   </HashRouter>

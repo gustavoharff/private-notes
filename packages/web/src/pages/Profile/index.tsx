@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../components/Header';
 
 import { Container } from './styles';
 
@@ -9,14 +8,11 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <>
-      <Header />
-      <Container>
-        <button type="button" onClick={handleLogout}>
-          Sair do aplicativo
-        </button>
-      </Container>
-    </>
+    <Container>
+      <button type="button" onClick={handleLogout}>
+        Exit the application
+      </button>
+    </Container>
   );
 };
 

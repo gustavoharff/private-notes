@@ -21,8 +21,8 @@ export const Logo = styled(Link)`
   align-items: center;
 
   img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 
   h3 {
@@ -35,6 +35,7 @@ export const Profile = styled(Link)`
   text-decoration: none;
   color: #fff;
   transition: 0.2s;
+  align-items: center;
 
   &:hover {
     opacity: 70%;
@@ -51,9 +52,10 @@ export const Profile = styled(Link)`
   }
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    border: 1px solid rgb(249, 204, 4);
+    border: 2px solid rgb(249, 204, 4);
+    padding: 3px;
   }
 `;

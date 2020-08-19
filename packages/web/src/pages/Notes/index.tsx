@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { TiArrowLeft } from 'react-icons/ti';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Container, Title, Text } from './styles';
 
 const Notes: React.FC = () => {
+  const { id } = useParams();
   const [content, setContent] = useState(() => {
-    const storagedContent = localStorage.getItem('@Notes:content');
+    const storagedContent = localStorage.getItem(`@Notes:content-${id}`);
 
     if (storagedContent) {
       return JSON.parse(storagedContent);
@@ -15,7 +16,7 @@ const Notes: React.FC = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem('@Notes:content', JSON.stringify(content));
+    localStorage.setItem(`@Notes:content-${id}`, JSON.stringify(content));
   }, [content]);
 
   const handleChangeTitle = (
@@ -33,7 +34,7 @@ const Notes: React.FC = () => {
   return (
     <Container>
       <div>
-        <Link to="/">
+        <Link to="/lobby">
           <TiArrowLeft size={30} />
         </Link>
 

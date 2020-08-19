@@ -12,7 +12,7 @@ const Dashboard: React.FC = () => (
 
     <h3>This application does not save content in the cloud!</h3>
 
-    <Link to="/notes">Go to notes</Link>
+    <Link to="/lobby">Go to notes</Link>
   </Container>
 );
 export default Dashboard;

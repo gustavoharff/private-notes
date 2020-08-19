@@ -12,7 +12,7 @@ export const Container = styled.div`
     border: 0;
     width: 250px;
     height: 50px;
-    background: #d95151;
+    background: #f94144;
     color: #fff;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@ export const Container = styled.div`
     font-size: 16px;
 
     &:hover {
-      background: ${darken(0.3, '#D95151')};
+      background: ${darken(0.2, '#f94144')};
     }
   }
 `;

@@ -26,7 +26,7 @@ export const Container = styled.div`
   a {
     width: 250px;
     height: 50px;
-    background: #2ebc4f;
+    background: #90be6d;
     color: #fff;
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@ export const Container = styled.div`
     transition: background-color 0.2s;
 
     &:hover {
-      background: ${darken(0.3, '#2ebc4f')};
+      background: ${darken(0.2, '#90be6d')};
     }
   }
 `;

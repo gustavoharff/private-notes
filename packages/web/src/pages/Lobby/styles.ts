@@ -6,13 +6,14 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: calc(100vh - 60px);
+  flex-direction: column;
 
   a {
     text-decoration: none;
     border: 0;
     width: 250px;
     height: 50px;
-    background: #f9cc04;
+    background: #f9c74f;
     color: #fff;
     display: flex;
     align-items: center;
@@ -25,7 +26,7 @@ export const Container = styled.div`
     margin: 10px;
 
     &:hover {
-      background: ${darken(0.3, '#F9CC04')};
+      background: ${darken(0.2, '#f9c74f')};
     }
   }
 `;

@@ -55,7 +55,7 @@ export const Profile = styled(Link)`
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid #f9cc04;
+    border: 2px solid #f9c74f;
     padding: 3px;
   }
 `;

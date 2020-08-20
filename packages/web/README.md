@@ -8,7 +8,10 @@
   <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#pacotes">Pacotes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
+<p align="center">
+  <img alt="My Note App" src=".github/mynoteapp.png" width="100%">
 </p>
 
 ## Tecnologias
@@ -16,6 +19,8 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [React](https://reactjs.org)
+- [Electron](https://www.electronjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Instalação
 Instale as dependências usando:

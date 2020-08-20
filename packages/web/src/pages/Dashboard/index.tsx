@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import Button from '../../components/Button';
 
 import logo from '../../assets/icon.png';
 
@@ -10,9 +11,8 @@ const Dashboard: React.FC = () => (
     <img src={logo} alt="My Note App" />
     <h1>Welcome to My Note App</h1>
 
-    <h3>This application does not save content in the cloud!</h3>
-
-    <Link to="/lobby">Go to notes</Link>
+    <strong>This application does not save content in the cloud!</strong>
+    <Button to="/lobby" title="Go to notes" color="#90be6d" />
   </Container>
 );
 export default Dashboard;

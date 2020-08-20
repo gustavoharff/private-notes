@@ -21,7 +21,7 @@ function createWindow(): void {
     webPreferences: {
       nodeIntegration: true,
     },
-    resizable: false,
+    // resizable: false,
   });
 
   if (process.env.NODE_ENV === 'development') {

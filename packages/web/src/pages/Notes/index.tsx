@@ -3,6 +3,7 @@ import { TiArrowLeft } from 'react-icons/ti';
 import { Link, useParams } from 'react-router-dom';
 
 import { Container, Title, Text } from './styles';
+import Button from '../../components/Button';
 
 const Notes: React.FC = () => {
   const { id } = useParams();
@@ -33,19 +34,17 @@ const Notes: React.FC = () => {
 
   return (
     <Container>
-      <div>
-        <Link to="/lobby">
-          <TiArrowLeft size={30} />
-        </Link>
-
-        <Title
-          placeholder="Type the title"
-          onChange={handleChangeTitle}
-          value={content.title}
-        />
-      </div>
+      <Title
+        placeholder="Type the title"
+        onChange={handleChangeTitle}
+        value={content.title}
+      />
 
       <Text maxLength={3800} onChange={handleChangeText} value={content.text} />
+
+      <Button to="/lobby" title="Go Back" color="#90be6d">
+        <TiArrowLeft size={30} />
+      </Button>
     </Container>
   );
 };

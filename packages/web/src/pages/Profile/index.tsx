@@ -1,19 +1,12 @@
 import React from 'react';
 
 import { Container } from './styles';
+import Button from '../../components/Button';
 
-const Profile: React.FC = () => {
-  function handleLogout(): void {
-    window.close();
-  }
-
-  return (
-    <Container>
-      <button type="button" onClick={handleLogout}>
-        Exit the application
-      </button>
-    </Container>
-  );
-};
+const Profile: React.FC = () => (
+  <Container>
+    <Button title="Exit the application" color="#f94144" to="/" />
+  </Container>
+);
 
 export default Profile;

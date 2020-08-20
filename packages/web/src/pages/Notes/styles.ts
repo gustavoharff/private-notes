@@ -1,38 +1,30 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 960px;
-  margin: auto;
-  padding: 40px 40px 20px 40px;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 100px;
 
-  div {
+  button {
     display: flex;
     align-items: center;
-
-    a {
-      text-decoration: none;
-      color: #fff;
-
-      svg:hover {
-        color: ${darken(0.3, '#fff')};
-      }
-    }
+    justify-content: center;
+    margin-bottom: 20px;
   }
 `;
 
 export const Title = styled.input`
-  display: block;
-  width: 100%;
-  margin: auto;
-  margin-left: 10px;
-  padding: 10px;
   border: 0;
+  text-align: center;
   background: none;
   color: #fff;
   font-size: 20px;
   font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   &:focus {
     outline: none;
@@ -40,23 +32,17 @@ export const Title = styled.input`
 `;
 
 export const Text = styled.textarea`
-  margin: 20px auto;
-  padding: 50px;
   width: 100%;
-  height: 470px;
+  height: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 5px;
   background: #444;
-
   color: #fff;
   font-size: 16px;
   border: 0;
   resize: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
+  user-select: none;
 
   &:focus {
     outline: none;

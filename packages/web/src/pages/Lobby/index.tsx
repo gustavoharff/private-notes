@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import Button from '../../components/Button';
 
 import { Container } from './styles';
 
 const Lobby: React.FC = () => (
   <Container>
-    <Link to="/notes/1">Note 1</Link>
-    <Link to="/notes/2">Nota 2</Link>
+    <Button to="/notes/1" title="First note" color="#f9c74f" />
+    <Button to="/notes/2" title="Second note" color="#f9c74f" />
   </Container>
 );
 

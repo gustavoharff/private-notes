@@ -41,7 +41,6 @@ export const Text = styled.textarea`
   color: #fff;
   font-size: 16px;
   border: 0;
-  resize: none;
   user-select: none;
 
   &:focus {

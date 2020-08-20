@@ -3,10 +3,12 @@
 </h1>
 
 <p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-licença">Licença</a>
+  <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pacotes">Pacotes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+
 </p>
 
 ## Tecnologias
@@ -15,22 +17,22 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [React](https://reactjs.org)
 
-## Installation
-Install the dependencies using:
+## Instalação
+Instale as dependências usando:
 
 ```bash
 yarn
 ```
 
-## Usage
-Run with developer mode using `dev`:
+## Utilização
+Rode em modo de desenvolvimento utilizando `dev`:
 
 ```bash
 yarn dev
 ```
 
-## Packaging
-To generate a project package run `package`:
+## Pacotes
+Gere os pacotes do projeto utilizando `package`:
 
 ```bash
 yarn package

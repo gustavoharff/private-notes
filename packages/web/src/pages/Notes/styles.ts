@@ -34,6 +34,8 @@ export const Title = styled.input`
 export const Text = styled.textarea`
   width: 100%;
   height: 100%;
+  min-height: 150px;
+  min-width: 300px;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;

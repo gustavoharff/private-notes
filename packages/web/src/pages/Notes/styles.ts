@@ -9,6 +9,7 @@ export const Container = styled.div`
   padding: 50px 50px;
 
   div {
+    min-width: 300px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -28,12 +29,12 @@ export const Container = styled.div`
 
 export const Title = styled.input`
   border: 0;
+  width: 60%;
   text-align: center;
   background: none;
   color: #fff;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 20px;
   margin-bottom: 20px;
 
   &:focus {
@@ -42,8 +43,8 @@ export const Title = styled.input`
 `;
 
 export const Text = styled.textarea`
-  width: 100%;
-  height: 100%;
+  height: 60%;
+  width: 60%;
   min-height: 150px;
   min-width: 300px;
   padding: 20px;

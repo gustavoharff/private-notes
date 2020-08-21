@@ -8,11 +8,21 @@ export const Container = styled.div`
   align-items: center;
   padding: 50px 100px;
 
-  button {
+  div {
     display: flex;
-    align-items: center;
+    width: 100%;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+
+    a {
+      margin-right: 20px;
+
+      > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 `;
 

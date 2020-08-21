@@ -3,6 +3,7 @@ import { TiArrowLeft } from 'react-icons/ti';
 import { Link, useParams } from 'react-router-dom';
 
 import { Container, Title, Text } from './styles';
+import ButtonLink from '../../components/ButtonLink';
 import Button from '../../components/Button';
 
 const Notes: React.FC = () => {
@@ -13,7 +14,7 @@ const Notes: React.FC = () => {
     if (storagedContent) {
       return JSON.parse(storagedContent);
     }
-    return {};
+    return { text: '', title: '' };
   });
 
   useEffect(() => {
@@ -32,6 +33,11 @@ const Notes: React.FC = () => {
     setContent({ ...content, text: event.target.value });
   };
 
+  const handleClearContent = (): void => {
+    setContent({ text: '', title: '' });
+    localStorage.setItem(`@Notes:content-${id}`, JSON.stringify(content));
+  };
+
   return (
     <Container>
       <Title
@@ -42,9 +48,16 @@ const Notes: React.FC = () => {
 
       <Text maxLength={3800} onChange={handleChangeText} value={content.text} />
 
-      <Button to="/lobby" title="Go Back" color="#90be6d">
-        <TiArrowLeft size={30} />
-      </Button>
+      <div>
+        <ButtonLink to="/lobby" title="Go Back" color="#90be6d">
+          <TiArrowLeft size={30} />
+        </ButtonLink>
+        <Button
+          onClick={handleClearContent}
+          title="Clear the note"
+          color="#f94144"
+        />
+      </div>
     </Container>
   );
 };

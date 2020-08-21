@@ -46,7 +46,7 @@ export const Text = styled.textarea`
   height: 60%;
   width: 60%;
   min-height: 150px;
-  min-width: 400px;
+  min-width: 350px;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;

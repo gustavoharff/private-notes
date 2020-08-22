@@ -19,6 +19,9 @@ export const GlobalStyle = createGlobalStyle`
     color: #E1E1E6;
     height: 677px;
     background: #191622;
+    ::-webkit-scrollbar {
+    display: none;
+    }
   }
 
   #root {

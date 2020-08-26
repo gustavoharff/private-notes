@@ -12,10 +12,6 @@ export const Container = styled.div`
     margin-bottom: 20px;
   }
 
-  h2 {
-    margin-bottom: 20px;
-  }
-
   form {
     display: flex;
     flex-direction: column;

@@ -15,6 +15,7 @@ const Profile: React.FC = () => {
       <Header />
       <Container>
         <Button
+          type="button"
           onClick={handleLogout}
           title="Exit the application"
           color="#f94144"

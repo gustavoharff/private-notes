@@ -61,6 +61,7 @@ const Notes: React.FC = () => {
             <TiArrowLeft size={30} />
           </ButtonLink>
           <Button
+            type="button"
             onClick={handleClearContent}
             title="Clear the note"
             color="#f94144"

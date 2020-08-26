@@ -8,7 +8,6 @@ export const Container = styled.input`
   justify-content: center;
   align-items: center;
   text-align: left;
-  margin-top: 20px;
   border: 0;
   color: #333;
   font-size: 16px;

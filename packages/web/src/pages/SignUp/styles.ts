@@ -12,13 +12,17 @@ export const Container = styled.div`
     margin-bottom: 20px;
   }
 
+  h2 {
+    margin-bottom: 20px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    input {
+    input + input {
       margin-top: 10px;
     }
 

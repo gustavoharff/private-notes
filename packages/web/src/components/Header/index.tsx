@@ -7,7 +7,7 @@ import { Container, Content, Logo, Profile } from './styles'; // eslint-disable-
 const Header: React.FC = () => (
   <Container>
     <Content>
-      <Logo to="/">
+      <Logo to="/dashboard">
         <img src={logo} alt="My Note App" />
         <h3>My Note App</h3>
       </Logo>

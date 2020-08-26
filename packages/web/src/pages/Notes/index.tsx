@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { TiArrowLeft } from 'react-icons/ti';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { Container, Title, Text } from './styles';
 import ButtonLink from '../../components/ButtonLink';
 import Button from '../../components/Button';
+import Header from '../../components/Header';
+
+import { Container, Title, Text } from './styles';
 
 const Notes: React.FC = () => {
   const { id } = useParams();
@@ -39,26 +41,34 @@ const Notes: React.FC = () => {
   };
 
   return (
-    <Container>
-      <Title
-        placeholder="Type the title"
-        onChange={handleChangeTitle}
-        value={content.title}
-      />
-
-      <Text maxLength={3800} onChange={handleChangeText} value={content.text} />
-
-      <div>
-        <ButtonLink to="/lobby" title="Go Back" color="#90be6d">
-          <TiArrowLeft size={30} />
-        </ButtonLink>
-        <Button
-          onClick={handleClearContent}
-          title="Clear the note"
-          color="#f94144"
+    <>
+      <Header />
+      <Container>
+        <Title
+          placeholder="Type the title"
+          onChange={handleChangeTitle}
+          value={content.title}
         />
-      </div>
-    </Container>
+
+        <Text
+          maxLength={3800}
+          onChange={handleChangeText}
+          value={content.text}
+        />
+
+        <div>
+          <ButtonLink to="/lobby" title="Go Back" color="#90be6d">
+            <TiArrowLeft size={30} />
+          </ButtonLink>
+          <Button
+            type="button"
+            onClick={handleClearContent}
+            title="Clear the note"
+            color="#f94144"
+          />
+        </div>
+      </Container>
+    </>
   );
 };
 

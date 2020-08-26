@@ -1,7 +1,9 @@
 import React from 'react';
 
-import { Container } from './styles';
 import Button from '../../components/Button';
+import Header from '../../components/Header';
+
+import { Container } from './styles';
 
 const Profile: React.FC = () => {
   function handleLogout(): void {
@@ -9,13 +11,16 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <Container>
-      <Button
-        onClick={handleLogout}
-        title="Exit the application"
-        color="#f94144"
-      />
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <Button
+          onClick={handleLogout}
+          title="Exit the application"
+          color="#f94144"
+        />
+      </Container>
+    </>
   );
 };
 

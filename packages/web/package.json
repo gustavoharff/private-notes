@@ -15,7 +15,7 @@
     "build:electron": "webpack --config webpack/electron.webpack.js --mode production",
     "build:react": "webpack --config webpack/react.webpack.js --mode production",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --dir"
+    "package:dist": "electron-builder --linux"
   },
   "keywords": [],
   "author": {
@@ -78,6 +78,13 @@
     "appId": "com.electron.my-note-app",
     "productName": "My Note App",
     "copyright": "Copyright © 2020 Gustavo Harff",
+    "linux": {
+      "category": "Development",
+      "icon": "./src/assets/icon.icns",
+      "target": [
+        "deb"
+      ]
+    },
     "mac": {
       "category": "public.app-category.video"
     },

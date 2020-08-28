@@ -22,6 +22,7 @@ function createWindow(): void {
       nodeIntegration: true,
     },
     resizable: false,
+    autoHideMenuBar: true,
   });
 
   if (process.env.NODE_ENV === 'development') {

@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 import logo from '../../assets/icon.png';
-import { Container } from './styles';
+import { Container, Logo, Credentials } from './styles';
 
 const SignUp: React.FC = () => {
   const [name, setName] = useState('');
@@ -19,9 +19,12 @@ const SignUp: React.FC = () => {
 
   return (
     <Container>
-      <img src={logo} alt="My Note App" />
-      <h2>My Note App</h2>
-      <form onSubmit={handleSignIn}>
+      <Logo>
+        <img src={logo} alt="My Note App" />
+        <h2>My Note App</h2>
+      </Logo>
+      <Credentials onSubmit={handleSignIn}>
+        <h2>Register to the app</h2>
         <Input
           onChange={(e) => setName(e.target.value)}
           value={name}
@@ -42,7 +45,7 @@ const SignUp: React.FC = () => {
         />
         <Button title="Register" color="#90be6d" type="submit" />
         <Link to="/">I have an account</Link>
-      </form>
+      </Credentials>
     </Container>
   );
 };

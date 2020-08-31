@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 import logo from '../../assets/icon.png';
-import { Container } from './styles';
+import { Container, Logo, Credentials } from './styles';
 
 const SignIn: React.FC = () => {
   const history = useHistory();
@@ -23,24 +23,27 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
-      <img src={logo} alt="My Note App" />
-      <h2>My Note App</h2>
-      <form onSubmit={handleSignIn}>
+      <Logo>
+        <img src={logo} alt="My Note App" />
+        <h2>My Note App</h2>
+      </Logo>
+      <Credentials onSubmit={handleSignIn}>
+        <h2>Log in to the app</h2>
         <Input
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           type="text"
-          placeholder="Your e-mail here"
+          placeholder="E-mail"
         />
         <Input
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type="password"
-          placeholder="Your password here"
+          placeholder="Password"
         />
         <Button title="Login" color="#90be6d" type="submit" />
         <Link to="/signup">Create account</Link>
-      </form>
+      </Credentials>
     </Container>
   );
 };

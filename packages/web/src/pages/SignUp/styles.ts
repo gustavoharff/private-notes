@@ -5,7 +5,14 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
+`;
+
+export const Logo = styled.div`
+  padding: 40px;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
 
   img {
     width: 96px;
@@ -15,20 +22,31 @@ export const Container = styled.div`
   h2 {
     margin-bottom: 20px;
   }
+`;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+export const Credentials = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(32, 32, 36);
+  padding: 40px;
+  border-radius: 8px;
 
-    input + input {
-      margin-top: 10px;
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-top: 10px;
+
+    &::placeholder {
+      opacity: 0.6;
     }
+  }
 
-    a {
-      margin-top: 20px;
-      color: #fff;
-    }
+  a {
+    margin-top: 20px;
+    color: #fff;
   }
 `;

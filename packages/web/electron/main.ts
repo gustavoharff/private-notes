@@ -21,8 +21,8 @@ function createWindow(): void {
     webPreferences: {
       nodeIntegration: true,
     },
-    resizable: false,
-    autoHideMenuBar: true,
+    // resizable: false,
+    // autoHideMenuBar: true,
   });
 
   if (process.env.NODE_ENV === 'development') {

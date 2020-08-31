@@ -5,18 +5,22 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 export const Logo = styled.div`
-  padding: 40px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-right: 40px;
 
   img {
     width: 96px;
-    margin-bottom: 20px;
   }
 
   h2 {

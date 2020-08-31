@@ -57,7 +57,7 @@ const Notes: React.FC = () => {
         />
 
         <div>
-          <ButtonLink to="/lobby" title="Go Back" color="#90be6d">
+          <ButtonLink to="/dashboard" title="Go Back" color="#90be6d">
             <TiArrowLeft size={30} />
           </ButtonLink>
           <Button

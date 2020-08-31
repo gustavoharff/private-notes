@@ -7,14 +7,12 @@ import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import Notes from './pages/Notes';
 import Profile from './pages/Profile';
-import Lobby from './pages/Lobby';
 
 const Routes: React.FC = () => (
   <HashRouter>
     <Route path="/" exact component={SignIn} />
     <Route path="/signup" component={SignUp} />
     <Route path="/dashboard" component={Dashboard} />
-    <Route path="/lobby" component={Lobby} />
     <Route path="/notes/:id" component={Notes} />
     <Route path="/profile" component={Profile} />
   </HashRouter>

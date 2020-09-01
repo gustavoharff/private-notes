@@ -21,7 +21,7 @@ const SignUp: React.FC = () => {
     <Container>
       <Logo>
         <img src={logo} alt="My Note App" />
-        <h2>My Note App</h2>
+        <h2>Private Notes</h2>
       </Logo>
       <Credentials onSubmit={handleSignIn}>
         <h2>Register to the app</h2>

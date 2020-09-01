@@ -1,5 +1,5 @@
 {
-  "name": "my-note-app",
+  "name": "private-notes",
   "version": "0.0.1",
   "description": "Some notes",
   "main": "./build/main.js",
@@ -76,8 +76,8 @@
     "webpack-cli": "^3.3.11"
   },
   "build": {
-    "appId": "com.electron.my-note-app",
-    "productName": "My Note App",
+    "appId": "com.electron.private-notes",
+    "productName": "Private Notes",
     "copyright": "Copyright © 2020 Gustavo Harff",
     "linux": {
       "category": "Development",

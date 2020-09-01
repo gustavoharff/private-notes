@@ -17,10 +17,15 @@ export const Logo = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 0;
+
+  @media (min-width: 600px) {
+    margin-right: 40px;
+  }
 
   img {
     width: 96px;
+    margin-bottom: 20px;
   }
 
   h2 {

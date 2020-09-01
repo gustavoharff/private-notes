@@ -8,8 +8,8 @@ const Header: React.FC = () => (
   <Container>
     <Content>
       <Logo to="/dashboard">
-        <img src={logo} alt="My Note App" />
-        <h3>My Note App</h3>
+        <img src={logo} alt="Private Notes" />
+        <h3>Private Notes</h3>
       </Logo>
       <Profile to="/profile">
         <div>

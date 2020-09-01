@@ -50,6 +50,6 @@ module.exports = {
     publicPath: './'
   },
   plugins: [
-    new HtmlWebpackPlugin({ title: 'My Note App'})
+    new HtmlWebpackPlugin({ title: 'Private Notes'})
   ]
 }

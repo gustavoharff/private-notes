@@ -9,7 +9,7 @@ import { Container } from './styles';
 import Button from '../../components/Button';
 
 const Dashboard: React.FC = () => {
-  const [notes, setNotes] = useState(() => {
+  const [notes, setNotes] = useState<number[]>(() => {
     const storagedLenght = localStorage.getItem('@Notes:lenght');
 
     if (storagedLenght) {
@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
         {notes.length < 1 && (
           <>
             <img src={logo} alt="My Note App" />
-            <h1>Welcome to My Note App</h1>
+            <h1>Welcome to Private Notes</h1>
 
             <strong>
               This application does not save content in the cloud!
@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
           </>
         )}
 
-        {notes &&
+        {notes && // eslint-disable-line
           notes.map((note) => (
             <ButtonLink
               key={note}
@@ -57,14 +57,14 @@ const Dashboard: React.FC = () => {
           ))}
 
         <Button
-          title="Adicionar"
+          title="Add note"
           color="#90be6d"
           type="button"
           onClick={handleAddNote}
         />
 
         <Button
-          title="Remover"
+          title="Remove note"
           color="#f94144"
           type="button"
           onClick={handleRemoveNotes}

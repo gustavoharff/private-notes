@@ -14,7 +14,6 @@ const SignUp: React.FC = () => {
 
   function handleSignIn(e: FormEvent): void {
     e.preventDefault();
-    console.log({ name, email, password });
   }
 
   return (

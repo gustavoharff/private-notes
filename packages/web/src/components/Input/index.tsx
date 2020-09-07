@@ -2,9 +2,7 @@ import React, { InputHTMLAttributes } from 'react';
 
 import { Container } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  type: 'text' | 'password';
-}
+type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FC<InputProps> = ({
   type,

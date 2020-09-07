@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 677px;
     background: #191622;
     ::-webkit-scrollbar {
-    display: none;
+      display: none;
     }
   }
 

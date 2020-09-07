@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
           </>
         )}
 
-        {notes && // eslint-disable-line
+        {notes &&
           notes.map((note) => (
             <ButtonLink
               key={note}

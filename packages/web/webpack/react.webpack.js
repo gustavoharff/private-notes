@@ -1,12 +1,12 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const rootPath = path.resolve(__dirname, '..')
+const rootPath = path.resolve(__dirname, '..');
 
 module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    mainFields: ['main', 'module', 'browser']
+    mainFields: ['main', 'module', 'browser'],
   },
   entry: path.resolve(rootPath, 'src', 'App.tsx'),
   target: 'electron-renderer',
@@ -17,24 +17,21 @@ module.exports = {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' }
-        ]
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
         test: /.*\.(gif|png|jpe?g)$/i,
         use: {
-          loader: 'file-loader'
-        }
-      }
-    ]
+          loader: 'file-loader',
+        },
+      },
+    ],
   },
   devServer: {
     contentBase: path.join(rootPath, 'build/renderer'),
@@ -42,14 +39,12 @@ module.exports = {
     compress: true,
     hot: true,
     port: 4000,
-    publicPath: '/'
+    publicPath: '/',
   },
   output: {
     path: path.resolve(rootPath, 'build/renderer'),
     filename: 'js/[name].js',
-    publicPath: './'
+    publicPath: './',
   },
-  plugins: [
-    new HtmlWebpackPlugin({ title: 'Private Notes'})
-  ]
-}
+  plugins: [new HtmlWebpackPlugin({ title: 'Private Notes' })],
+};

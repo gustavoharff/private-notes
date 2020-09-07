@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.button<{ color: string }>`
+interface ButtonProps {
+  color: string;
+}
+
+export const Container = styled.button<ButtonProps>`
   width: 250px;
   height: 50px;
   display: flex;

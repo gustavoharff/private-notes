@@ -9,7 +9,13 @@ interface ButtonProps {
   type: 'button' | 'submit';
 }
 
-const Button: React.FC<ButtonProps> = ({ title, color, children, onClick, type }) => ( //eslint-disable-line
+const Button: React.FC<ButtonProps> = ({
+  title,
+  color,
+  children,
+  onClick,
+  type,
+}) => (
   <Container onClick={onClick} type={type} color={color}>
     {children}
     {title}

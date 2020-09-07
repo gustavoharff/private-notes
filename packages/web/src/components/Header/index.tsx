@@ -2,7 +2,7 @@ import React from 'react';
 
 import logo from '../../assets/icon.png';
 
-import { Container, Content, Logo, Profile } from './styles'; // eslint-disable-line
+import { Container, Content, Logo, Profile } from './styles';
 
 const Header: React.FC = () => (
   <Container>

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Routes from './routes';
 
-import { GlobalStyle } from './styles/GlobalStyle';
+import { GlobalStyle } from './styles/global';
 
 const mainElement = document.createElement('div');
 mainElement.setAttribute('id', 'root');

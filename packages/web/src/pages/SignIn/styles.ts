@@ -1,61 +1,68 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  @media (min-width: 600px) {
-    flex-direction: row;
-  }
-`;
-
-export const Logo = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 0;
-
-  @media (min-width: 600px) {
-    margin-right: 40px;
-  }
-
-  img {
-    width: 96px;
-    margin-bottom: 20px;
-  }
-
-  h2 {
-    margin-bottom: 20px;
-  }
-`;
-
-export const Credentials = styled.form`
+  height: calc(100vh - 260px);
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(32, 32, 36);
-  padding: 40px;
-  border-radius: 8px;
 
-  h2 {
-    margin-bottom: 10px;
-  }
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 310px;
+    width: 240px;
 
-  input {
-    margin-top: 10px;
-
-    &::placeholder {
-      opacity: 0.6;
+    h1 {
+      margin-bottom: 30px;
+      font-size: 36px;
     }
-  }
 
-  a {
-    margin-top: 20px;
-    color: #fff;
+    span {
+      font-size: 14px;
+    }
+
+    input {
+      background: none;
+      border: 0;
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    input + span {
+      margin-top: 22px;
+    }
+
+    button {
+      margin-top: 35px;
+      height: 40px;
+      border-radius: 40px;
+      background: #f9c74f;
+      border: 0;
+      transition: 0.2s;
+      font-weight: bold;
+
+      &:hover {
+        background: ${shade(0.2, '#f9c74f')};
+      }
+    }
+
+    button + span {
+      margin-top: 25px;
+
+      > a {
+        color: #f9c74f;
+        margin-left: 5px;
+        transition: 0.2s;
+
+        &:hover {
+          color: ${shade(0.2, '#f9c74f')};
+        }
+      }
+    }
   }
 `;

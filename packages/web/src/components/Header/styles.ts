@@ -2,36 +2,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  background: #0003;
-  width: 100%;
-  padding: 0 10px;
-`;
-
-export const Content = styled.div`
-  max-width: 960px;
-  margin: auto;
   display: flex;
-  height: 60px;
-  align-items: center;
   justify-content: space-between;
-`;
-
-export const Logo = styled(Link)`
-  color: #fff;
-  display: flex;
   align-items: center;
-
-  img {
-    width: 40px;
-    height: 40px;
-  }
-
-  h3 {
-    margin-left: 10px;
-  }
+  padding: 40px;
 `;
 
 export const Profile = styled(Link)`
+  visibility: hidden;
   display: flex;
   text-decoration: none;
   color: #fff;
@@ -58,5 +36,9 @@ export const Profile = styled(Link)`
     border-radius: 50%;
     border: 2px solid #f9c74f;
     padding: 3px;
+  }
+
+  @media (max-width: 550px) {
+    display: none;
   }
 `;

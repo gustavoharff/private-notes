@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -13,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Ubuntu, Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     color: #E1E1E6;

@@ -1,51 +1,25 @@
-import React, { useState, FormEvent } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
 
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+import { Container } from './styles';
 
-import logo from '../../assets/icon.png';
-import { Container, Logo, Credentials } from './styles';
+const SignIn: React.FC = () => (
+  <Container>
+    <form>
+      <h1>Log in</h1>
 
-const SignIn: React.FC = () => {
-  const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+      <span>Email adress</span>
+      <input type="text" placeholder="you@example.com" />
 
-  function handleSignIn(e: FormEvent): any {
-    e.preventDefault();
-    if (email === 'admin' && password === 'admin') {
-      history.push('/dashboard');
-    } else {
-      alert('Login failed, check your credentials!');
-    }
-  }
+      <span>Password</span>
+      <input type="password" placeholder="Enter you password" />
 
-  return (
-    <Container>
-      <Logo>
-        <img src={logo} alt="My Note App" />
-        <h2>Private Notes</h2>
-      </Logo>
-      <Credentials onSubmit={handleSignIn}>
-        <h2>Log in to the app</h2>
-        <Input
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          type="text"
-          placeholder="E-mail"
-        />
-        <Input
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          placeholder="Password"
-        />
-        <Button title="Login" color="#90be6d" type="submit" />
-        <Link to="/signup">Create account</Link>
-      </Credentials>
-    </Container>
-  );
-};
+      <button type="submit">Log In</button>
+
+      <span>
+        Dont have an account?<a href="/signup">Sign Up</a>
+      </span>
+    </form>
+  </Container>
+);
 
 export default SignIn;

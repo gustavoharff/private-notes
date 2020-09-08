@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 
 import { GlobalStyle } from './styles/global';
+import Header from './components/Header';
 
 const mainElement = document.createElement('div');
 mainElement.setAttribute('id', 'root');
@@ -12,6 +13,7 @@ document.body.appendChild(mainElement);
 
 const App: React.FC = () => (
   <BrowserRouter>
+    <Header />
     <Routes />
 
     <GlobalStyle />

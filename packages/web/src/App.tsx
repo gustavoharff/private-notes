@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime.js';
 
 import React from 'react';
 import reactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { AuthProvider } from './hooks/AuthContext';
 
@@ -16,14 +16,14 @@ mainElement.setAttribute('id', 'root');
 document.body.appendChild(mainElement);
 
 const App: React.FC = () => (
-  <AuthProvider>
-    <BrowserRouter>
+  <Router>
+    <AuthProvider>
       <Header />
       <Routes />
+    </AuthProvider>
 
-      <GlobalStyle />
-    </BrowserRouter>
-  </AuthProvider>
+    <GlobalStyle />
+  </Router>
 );
 
 reactDOM.render(<App />, mainElement);

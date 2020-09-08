@@ -14,7 +14,7 @@ const SignUp: React.FC = () => (
       <span>Email adress</span>
       <input type="text" placeholder="you@example.com" />
 
-      <span>Password</span>
+      <span>Create password</span>
       <input type="password" placeholder="Enter you password" />
 
       <button type="submit">Log In</button>

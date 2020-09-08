@@ -5,7 +5,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "mynoteapp",
+  "database": "private_notes",
   "entities": [
     "./src/models/*.ts"
   ],

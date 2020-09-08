@@ -14,7 +14,6 @@ const appearFromLeft = keyframes`
 
 export const Container = styled.div`
   flex-grow: 1;
-  padding-bottom: 100px;
   margin: auto;
   display: flex;
   flex-direction: column;

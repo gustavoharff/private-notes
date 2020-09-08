@@ -12,7 +12,6 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    height: 310px;
     width: 240px;
 
     h1 {

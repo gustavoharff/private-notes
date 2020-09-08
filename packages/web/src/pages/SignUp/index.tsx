@@ -1,52 +1,29 @@
-import React, { useState, FormEvent } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+import { Container } from './styles';
 
-import logo from '../../assets/icon.png';
-import { Container, Logo, Credentials } from './styles';
+const SignUp: React.FC = () => (
+  <Container>
+    <form>
+      <h1>Sign up</h1>
 
-const SignUp: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+      <span>Full name</span>
+      <input type="text" placeholder="Enter you name" />
 
-  function handleSignIn(e: FormEvent): void {
-    e.preventDefault();
-  }
+      <span>Email adress</span>
+      <input type="text" placeholder="you@example.com" />
 
-  return (
-    <Container>
-      <Logo>
-        <img src={logo} alt="My Note App" />
-        <h2>Private Notes</h2>
-      </Logo>
-      <Credentials onSubmit={handleSignIn}>
-        <h2>Register to the app</h2>
-        <Input
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          type="text"
-          placeholder="Your name here"
-        />
-        <Input
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          type="text"
-          placeholder="Your e-mail here"
-        />
-        <Input
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          placeholder="Your password here"
-        />
-        <Button title="Register" color="#90be6d" type="submit" />
-        <Link to="/">I have an account</Link>
-      </Credentials>
-    </Container>
-  );
-};
+      <span>Password</span>
+      <input type="password" placeholder="Enter you password" />
+
+      <button type="submit">Log In</button>
+
+      <span>
+        Already have an account?<Link to="/">Log In</Link>
+      </span>
+    </form>
+  </Container>
+);
 
 export default SignUp;

@@ -1,9 +1,9 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
-import { AuthContext } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
 
@@ -15,9 +15,7 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
-  const { user, signIn } = useContext(AuthContext);
-
-  console.log(user);
+  const { signIn } = useAuth();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {

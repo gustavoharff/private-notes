@@ -13,9 +13,8 @@ const appearFromLeft = keyframes`
 `;
 
 export const Container = styled.div`
-  height: calc(100% - 130px);
   margin: 0 auto;
-  padding-bottom: 100px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;

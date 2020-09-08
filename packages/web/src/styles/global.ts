@@ -18,6 +18,11 @@ export const GlobalStyle = createGlobalStyle`
     height: 100% ;
   }
 
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+
   body {
     font-family: Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;

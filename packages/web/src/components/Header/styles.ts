@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
+  margin: 0 auto;
   max-width: 900px;
-  padding: 40px 20px;
+  padding: 40px 20px 20px 40px;
 `;
 
 export const Profile = styled(Link)`

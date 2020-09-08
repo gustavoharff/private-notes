@@ -4,6 +4,8 @@ import React from 'react';
 import reactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import { AuthProvider } from './hooks/AuthContext';
+
 import Routes from './routes';
 
 import { GlobalStyle } from './styles/global';
@@ -14,12 +16,14 @@ mainElement.setAttribute('id', 'root');
 document.body.appendChild(mainElement);
 
 const App: React.FC = () => (
-  <BrowserRouter>
-    <Header />
-    <Routes />
+  <AuthProvider>
+    <BrowserRouter>
+      <Header />
+      <Routes />
 
-    <GlobalStyle />
-  </BrowserRouter>
+      <GlobalStyle />
+    </BrowserRouter>
+  </AuthProvider>
 );
 
 reactDOM.render(<App />, mainElement);

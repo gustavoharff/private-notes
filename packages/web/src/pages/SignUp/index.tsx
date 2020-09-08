@@ -1,14 +1,24 @@
 import React, { useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+
+import api from '../../services/api';
 
 import Input from '../../components/Input';
 
 import { Container } from './styles';
 
+interface SignUpFormData {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const SignUp: React.FC = () => {
-  const handleSubmit = useCallback(async (data: object) => {
+  const history = useHistory();
+
+  const handleSubmit = useCallback(async (data: SignUpFormData) => {
     try {
       const schema = Yup.object().shape({
         name: Yup.string().required('Name required'),
@@ -21,6 +31,10 @@ const SignUp: React.FC = () => {
       });
 
       await schema.validate(data, { abortEarly: false });
+
+      await api.post('/users', data);
+
+      history.push('/');
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +58,7 @@ const SignUp: React.FC = () => {
           placeholder="Enter you password"
         />
 
-        <button type="submit">Log In</button>
+        <button type="submit">Sign Up</button>
 
         <span>
           Already have an account?<Link to="/">Log In</Link>

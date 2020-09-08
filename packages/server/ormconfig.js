@@ -2,18 +2,14 @@ require('dotenv/config');
 
 module.exports = {
   type: "postgres",
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  url: process.env.DATABASE_URL,
   entities: [
-    "./src/models/*.ts"
+    "./dist/models/*.js"
   ],
   migrations: [
-    "./src/database/migrations/*.ts"
+    "./dist/database/migrations/*js"
   ],
   cli: {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./dist/database/migrations"
   }
 }

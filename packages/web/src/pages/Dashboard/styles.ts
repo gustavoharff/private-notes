@@ -1,19 +1,47 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: calc(100vh - 60px);
+  margin: 0 auto;
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 
-  img {
-    width: 96px;
-    margin-bottom: 20px;
+  max-width: 900px;
+`;
+
+export const Note = styled.div`
+  margin: auto;
+  border-radius: 9px;
+
+  & + div {
+    margin-left: 10px;
   }
 
-  h1,
-  strong {
-    margin-bottom: 20px;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 78px;
+    width: 200px;
+    border-radius: 9px 9px 0 0;
+    text-align: center;
+    background: #f9c74f;
+
+    strong {
+      color: #333;
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    width: 200px;
+    border-radius: 0 0 9px 9px;
+    background: #f46262;
   }
 `;

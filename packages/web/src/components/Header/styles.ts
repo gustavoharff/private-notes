@@ -1,5 +1,10 @@
+import { RefAttributes } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+interface ProfileProps extends RefAttributes<HTMLAnchorElement> {
+  signed: boolean;
+}
 
 export const Container = styled.div`
   display: flex;
@@ -11,8 +16,11 @@ export const Container = styled.div`
   padding: 40px 20px 20px 40px;
 `;
 
-export const Profile = styled(Link)`
-  visibility: hidden;
+export const Content = styled.div``;
+
+export const Profile = styled(Link)<ProfileProps>`
+  visibility: ${(props) => (props.signed ? 'visible' : 'hidden')};
+
   display: flex;
   text-decoration: none;
   color: #fff;

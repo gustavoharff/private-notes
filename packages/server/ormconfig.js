@@ -8,12 +8,12 @@ module.exports = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   entities: [
-    "./dist/models/*.js"
+    "./src/models/*.ts"
   ],
   migrations: [
-    "./dist/database/migrations/*.js"
+    "./src/database/migrations/*.ts"
   ],
   cli: {
-    "migrationsDir": "./dist/database/migrations"
+    "migrationsDir": "./src/database/migrations"
   }
 }

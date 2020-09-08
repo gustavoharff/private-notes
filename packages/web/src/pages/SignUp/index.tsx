@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
+import * as Yup from 'yup';
 
 import Input from '../../components/Input';
 
 import { Container } from './styles';
 
 const SignUp: React.FC = () => {
-  function handleSubmit(data: object): void {
-    console.log(data);
-  }
+  const handleSubmit = useCallback(async (data: object) => {
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Name required'),
+        email: Yup.string()
+          .required('E-mail required')
+          .email('Enter a valid email address'),
+        password: Yup.string()
+          .required('Password required')
+          .min(6, 'At least 6 digits'),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
   return (
     <Container>
       <Form onSubmit={handleSubmit}>

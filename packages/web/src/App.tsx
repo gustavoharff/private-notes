@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime.js';
+
 import React from 'react';
 import reactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';

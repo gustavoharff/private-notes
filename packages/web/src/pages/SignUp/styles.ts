@@ -24,19 +24,6 @@ export const Container = styled.div`
       font-size: 14px;
     }
 
-    input {
-      background: none;
-      border: 0;
-      padding: 8px 0;
-      border-bottom: 1px solid #333;
-      color: #fff;
-      font-size: 14px;
-    }
-
-    input + span {
-      margin-top: 22px;
-    }
-
     button {
       margin-top: 35px;
       height: 40px;

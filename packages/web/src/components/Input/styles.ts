@@ -1,17 +1,28 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.input`
-  width: 250px;
-  height: 35px;
-  display: flex;
-  padding: 0 15px;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
+interface ContainerProps {
+  isFilled: boolean;
+}
+
+export const Container = styled.input<ContainerProps>`
+  background: none;
   border: 0;
-  color: #333;
-  font-size: 16px;
-  background: ${(props) => props.color};
-  border-radius: 8px;
-  transition: background-color 0.2s;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+  color: #fff;
+  font-size: 14px;
+
+  ${(props) =>
+    props.isFilled &&
+    css`
+      border-color: #f9c74f;
+    `}
+
+  & + span {
+    margin-top: 22px;
+  }
+
+  &:focus {
+    border-color: #f9c74f;
+  }
 `;

@@ -1,26 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Form } from '@unform/web';
+
+import Input from '../../components/Input';
 
 import { Container } from './styles';
 
-const SignIn: React.FC = () => (
-  <Container>
-    <form>
-      <h1>Log in</h1>
+const SignIn: React.FC = () => {
+  function handleSubmit(data: object): void {
+    console.log(data);
+  }
 
-      <span>Email adress</span>
-      <input type="text" placeholder="you@example.com" />
+  return (
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <h1>Log in</h1>
 
-      <span>Password</span>
-      <input type="password" placeholder="Enter you password" />
+        <span>Email adress</span>
+        <Input name="email" placeholder="you@example.com" />
 
-      <button type="submit">Log In</button>
+        <span>Password</span>
+        <Input
+          name="password"
+          type="password"
+          placeholder="Enter you password"
+        />
 
-      <span>
-        Dont have an account?<Link to="/signup">Sign Up</Link>
-      </span>
-    </form>
-  </Container>
-);
+        <button type="submit">Log In</button>
+
+        <span>
+          Dont have an account?<Link to="/signup">Sign Up</Link>
+        </span>
+      </Form>
+    </Container>
+  );
+};
 
 export default SignIn;

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
-  height: calc(100vh - 260px);
+  height: calc(100% - 130px);
+  padding-bottom: 100px;
   margin: auto;
   display: flex;
   flex-direction: column;

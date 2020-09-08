@@ -7,7 +7,7 @@ module.exports = {
     "./dist/models/*.js"
   ],
   migrations: [
-    "./dist/database/migrations/*js"
+    "./dist/database/migrations/*.js"
   ],
   cli: {
     "migrationsDir": "./dist/database/migrations"

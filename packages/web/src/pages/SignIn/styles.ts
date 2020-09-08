@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
-  height: calc(100vh - 260px);
-  margin: auto;
+  /* height: calc(100vh - 260px); */
+  height: 70%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;

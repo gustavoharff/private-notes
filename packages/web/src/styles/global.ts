@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html, body, #root {
-    height: 100%;
+    height: 100% ;
   }
 
   body {
@@ -23,15 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     color: #E1E1E6;
-    height: 677px;
     background: #191622;
     ::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  #root {
-    margin: 0 auto;
   }
 
   svg, img, a {

@@ -5,7 +5,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px;
+  margin: auto;
+  max-width: 900px;
+  padding: 40px 20px;
 `;
 
 export const Profile = styled(Link)`

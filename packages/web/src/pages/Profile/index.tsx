@@ -1,41 +1,22 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-
-import Button from '../../components/Button';
-import Header from '../../components/Header';
+import React, { useCallback } from 'react';
 
 import { Container } from './styles';
 
+import { useAuth } from '../../hooks/AuthContext';
+
 const Profile: React.FC = () => {
-  const history = useHistory();
+  const { signOut } = useAuth();
 
-  function handleLogout(): void {
-    history.push('/');
-  }
-
-  function handleExit(): void {
-    window.close();
-  }
+  const handleLogout = useCallback(() => {
+    signOut();
+  }, [signOut]);
 
   return (
-    <>
-      <Header />
-      <Container>
-        <Button
-          type="button"
-          onClick={handleLogout}
-          title="Logout"
-          color="#f94144"
-        />
-        <Button
-          type="button"
-          onClick={handleExit}
-          title="Exit the application"
-          color="#f94144"
-        />
-      </Container>
-    </>
+    <Container>
+      <button type="button" onClick={handleLogout}>
+        Logout
+      </button>
+    </Container>
   );
 };
-
 export default Profile;

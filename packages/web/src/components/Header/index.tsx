@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/AuthContext';
 
 import Logo from '../../assets/logo-with-name.svg';
@@ -11,10 +12,12 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
 
       <Content>
-        <Profile signed={!!user} to="/profile">
+        <Profile signed={toString(!!user)} to="/profile">
           {user && (
             <>
               <div>

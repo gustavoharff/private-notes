@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { FiTrash } from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -6,17 +7,42 @@ import { useAuth } from '../../hooks/AuthContext';
 
 import { Container, Note } from './styles';
 
+interface NoteProps {
+  id: string;
+  title: string;
+}
+
 const Dashboard: React.FC = () => {
-  const [notes, setNotes] = useState([]);
+  const [newNoteTitle, setNewNoteTitle] = useState('');
+  const [notes, setNotes] = useState<NoteProps[]>([]);
 
   const { token } = useAuth();
 
-  async function handleAddNote() {
+  const handleDeleteNote = useCallback(
+    async (id: string) => {
+      await api.delete(`notes/${id}`, {
+        headers: {
+          Authorization: `Beader ${token}`,
+        },
+      });
+
+      const response = await api.get('notes', {
+        headers: {
+          Authorization: `Beader ${token}`,
+        },
+      });
+
+      setNotes(response.data);
+    },
+    [token],
+  );
+
+  const handleAddNote = useCallback(async () => {
     const response = await api.post(
       'notes',
       {
-        title: 'teste',
-        content: 'testeee',
+        title: newNoteTitle !== '' ? newNoteTitle : 'Title not defined',
+        content: '',
       },
       {
         headers: {
@@ -25,8 +51,13 @@ const Dashboard: React.FC = () => {
       },
     );
 
+    setNewNoteTitle('');
     setNotes([...notes, response.data]);
-  }
+  }, [notes, newNoteTitle, token]);
+
+  const handleInputChange = useCallback((e) => {
+    setNewNoteTitle(e.target.value);
+  }, []);
 
   useEffect(() => {
     api
@@ -36,7 +67,7 @@ const Dashboard: React.FC = () => {
         },
       })
       .then((response) => setNotes(response.data));
-  }, []);
+  }, [token]);
 
   return (
     <Container>
@@ -45,14 +76,25 @@ const Dashboard: React.FC = () => {
           <header>
             <strong>{note.title}</strong>
           </header>
-          <footer>Remove</footer>
+          <button type="button" onClick={() => handleDeleteNote(note.id)}>
+            <FiTrash />
+            Remove
+          </button>
         </Note>
       ))}
 
-      <button type="button" onClick={handleAddNote}>
-        {' '}
-        Adicionar nota
-      </button>
+      <main>
+        <header>
+          <input
+            placeholder="Type the title"
+            value={newNoteTitle}
+            onChange={handleInputChange}
+          />
+        </header>
+        <button type="button" onClick={handleAddNote}>
+          Add
+        </button>
+      </main>
     </Container>
   );
 };

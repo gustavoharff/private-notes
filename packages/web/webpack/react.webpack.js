@@ -38,7 +38,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(rootPath, 'build/renderer'),
+    contentBase: path.join(rootPath, 'dist/renderer'),
     historyApiFallback: true,
     compress: true,
     hot: true,
@@ -46,9 +46,13 @@ module.exports = {
     publicPath: '/',
   },
   output: {
-    path: path.resolve(rootPath, 'build/renderer'),
+    path: path.resolve(rootPath, 'dist/renderer'),
     filename: 'js/[name].js',
     publicPath: './',
   },
-  plugins: [new HtmlWebpackPlugin({ title: 'Private Notes' })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(rootPath, 'index.html')
+    }),
+  ]
 };

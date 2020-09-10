@@ -5,9 +5,7 @@ import * as url from 'url';
 let mainWindow: Electron.BrowserWindow | null;
 
 function createWindow(): void {
-  const icon = nativeImage.createFromPath(
-    `${app.getAppPath()}/src/assets/icon.png`,
-  );
+  const icon = nativeImage.createFromPath(`${app.getAppPath()}/build/icon.png`);
 
   if (app.dock) {
     app.dock.setIcon(icon);

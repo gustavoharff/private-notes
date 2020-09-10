@@ -24,7 +24,7 @@ module.exports = {
     __dirname: false,
   },
   output: {
-    path: path.resolve(rootPath, 'build'),
+    path: path.resolve(rootPath, 'dist'),
     filename: '[name].js',
   },
 };

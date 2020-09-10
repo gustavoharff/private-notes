@@ -1,18 +1,15 @@
-import 'regenerator-runtime/runtime.js';
-
 import React from 'react';
 import reactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Modal from 'react-modal';
 
-import { AuthProvider } from './hooks/AuthContext';
+import { AuthProvider } from './hooks/auth';
 
 import Routes from './routes';
 
 import { GlobalStyle } from './styles/global';
 
-const mainElement = document.createElement('div');
-mainElement.setAttribute('id', 'root');
-document.body.appendChild(mainElement);
+Modal.setAppElement('#root');
 
 const App: React.FC = () => (
   <Router>
@@ -24,4 +21,4 @@ const App: React.FC = () => (
   </Router>
 );
 
-reactDOM.render(<App />, mainElement);
+reactDOM.render(<App />, document.getElementById('root'));

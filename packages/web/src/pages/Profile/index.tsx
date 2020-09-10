@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 
 import { Container } from './styles';
 
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/auth';
 
 const Profile: React.FC = () => {
   const { signOut } = useAuth();

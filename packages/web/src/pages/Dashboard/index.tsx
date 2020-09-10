@@ -3,7 +3,7 @@ import { FiTrash } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/auth';
 
 import { Container, Note } from './styles';
 

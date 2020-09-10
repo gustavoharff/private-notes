@@ -1,6 +1,4 @@
-<h1 align="center">
-    <img alt="My Note App" title="My Note App" src=".github/logo.svg" />
-</h1>
+<h1 align="center">Privete Notes</h1>
 
 <p align="center">
   <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -8,10 +6,6 @@
   <a href="#utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#pacotes">Pacotes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#licença">Licença</a>
-</p>
-
-<p align="center">
-  <img alt="My Note App" src=".github/mynoteapp.png" width="100%">
 </p>
 
 ## Tecnologias

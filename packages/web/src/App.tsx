@@ -2,6 +2,7 @@ import React from 'react';
 import reactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Modal from 'react-modal';
+import { ToastContainer } from 'react-toastify';
 
 import Routes from './routes';
 
@@ -19,7 +20,7 @@ const App: React.FC = () => (
       <Header />
       <Routes />
     </AuthProvider>
-
+    <ToastContainer autoClose={3000} />
     <GlobalStyle />
   </Router>
 );

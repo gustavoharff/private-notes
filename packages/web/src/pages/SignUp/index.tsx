@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
@@ -34,9 +35,17 @@ const SignUp: React.FC = () => {
 
       await api.post('/users', data);
 
+      toast.success('Account created.');
+
       history.push('/');
     } catch (err) {
-      console.log(err);
+      if (err instanceof Yup.ValidationError) {
+        console.log(err);
+
+        return;
+      }
+
+      toast.error('Unable to create account');
     }
   }, []);
 

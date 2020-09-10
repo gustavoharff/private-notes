@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -29,12 +30,18 @@ const SignIn: React.FC = () => {
 
         await schema.validate(data, { abortEarly: false });
 
-        signIn({
+        await signIn({
           email: data.email,
           password: data.password,
         });
       } catch (err) {
-        console.log(err);
+        if (err instanceof Yup.ValidationError) {
+          console.log(err);
+
+          return;
+        }
+
+        toast.error('Authentication failure.');
       }
     },
     [signIn],

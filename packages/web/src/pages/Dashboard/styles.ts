@@ -3,106 +3,99 @@ import { shade } from 'polished';
 
 export const Container = styled.div`
   margin: 0 auto;
-  flex-grow: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
+  width: 100%;
   max-width: 900px;
+`;
 
-  > main {
-    margin: auto;
-    border: 0;
-    background: none;
+export const AddNote = styled.div`
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
 
-    div + & {
-      margin-left: 10px;
-    }
+  width: 100%;
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 78px;
-      width: 200px;
-      border-radius: 9px 9px 0 0;
-      text-align: center;
-      background: #f9c74f;
+  form {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    border: 1px solid #5f6368;
+    border-radius: 9px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 
-      input {
-        max-width: 190px;
-        font-weight: bold;
-        text-align: center;
-        background: none;
-        border: 0;
-        color: #333;
-        font-size: 16px;
-        padding: 5px;
-      }
+    input {
+      height: 100%;
+      width: 100%;
+      background: none;
+      border: 0;
+      padding: 20px 0 20px 20px;
+      color: #fff;
+      flex: 1;
+      font-size: 14px;
     }
 
     button {
-      border: 0;
-      color: #fff;
+      width: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 34px;
-      width: 200px;
-      border-radius: 0 0 9px 9px;
-      background: #90be6d;
-      transition: 0.2s;
+      background: none;
+      border: 0;
+      color: #5f6368;
 
       &:hover {
-        background: ${shade(0.2, '#90be6d')};
+        color: ${shade(0.2, '#5f6368')};
       }
     }
   }
 `;
 
+export const Notes = styled.div`
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  padding: 0 20px;
+`;
+
 export const Note = styled.div`
-  margin: auto;
+  display: flex;
   border-radius: 9px;
+  border: 1px solid #5f6368;
+  width: 100%;
+  max-width: 251px;
+  margin-top: 20px;
+  height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 
-  & + div {
-    margin-left: 10px;
-  }
-
-  header {
+  div {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 78px;
-    width: 200px;
-    border-radius: 9px 9px 0 0;
-    text-align: center;
-    background: #f9c74f;
-
-    strong {
-      text-align: center;
-      background: none;
-      border: 0;
-      color: #333;
-    }
+    width: 100%;
   }
 
   button {
-    border: 0;
+    background: none;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 34px;
-    width: 200px;
-    border-radius: 0 0 9px 9px;
-    background: #f46262;
-
-    transition: 0.2s;
+    border: 0;
 
     &:hover {
-      background: ${shade(0.2, '#f46262')};
+      color: ${shade(0.2, '#fff')};
     }
   }
 `;

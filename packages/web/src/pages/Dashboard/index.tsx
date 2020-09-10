@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { FiTrash } from 'react-icons/fi';
+import { FiTrash, FiPlus } from 'react-icons/fi';
 
 import api from '../../services/api';
 
 import { useAuth } from '../../hooks/auth';
 
-import { Container, Note } from './styles';
+import { Container, AddNote, Notes, Note } from './styles';
 
 interface NoteProps {
   id: string;
@@ -71,30 +71,32 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      {notes.map((note) => (
-        <Note key={note.id}>
-          <header>
-            <strong>{note.title}</strong>
-          </header>
-          <button type="button" onClick={() => handleDeleteNote(note.id)}>
-            <FiTrash />
-            Remove
-          </button>
-        </Note>
-      ))}
-
-      <main>
-        <header>
+      <AddNote>
+        <form>
           <input
-            placeholder="Type the title"
+            placeholder="Type the title here"
             value={newNoteTitle}
             onChange={handleInputChange}
           />
-        </header>
-        <button type="button" onClick={handleAddNote}>
-          Add
-        </button>
-      </main>
+
+          <button type="button" onClick={handleAddNote}>
+            <FiPlus size={20} />
+          </button>
+        </form>
+      </AddNote>
+
+      <Notes>
+        {notes.map((note) => (
+          <Note key={note.id}>
+            <div>
+              <strong>{note.title}</strong>
+            </div>
+            <button type="button" onClick={() => handleDeleteNote(note.id)}>
+              <FiTrash size={18} />
+            </button>
+          </Note>
+        ))}
+      </Notes>
     </Container>
   );
 };

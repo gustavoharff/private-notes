@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
@@ -71,6 +71,17 @@ export const Notes = styled.div`
   padding: 0 20px;
 `;
 
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
 export const Note = styled.div`
   display: flex;
   border-radius: 9px;
@@ -83,6 +94,8 @@ export const Note = styled.div`
   justify-content: space-between;
   padding: 20px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+
+  animation: ${appearFromLeft} 1s;
 
   div {
     display: flex;

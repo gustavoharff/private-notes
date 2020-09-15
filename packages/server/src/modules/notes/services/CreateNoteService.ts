@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
 
-import Note from '../models/Note';
+import Note from '@modules/notes/infra/typeorm/entities/Note';
 
 interface Request {
   title: string;

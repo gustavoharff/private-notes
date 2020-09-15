@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
 
-import Note from '../models/Note';
+import Note from '@modules/notes/infra/typeorm/entities/Note';
 
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
-import CreateNoteService from '../services/CreateNoteService';
-import DeleteNoteService from '../services/DeleteNoteService';
+import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
+import CreateNoteService from '@modules/notes/services/CreateNoteService';
+import DeleteNoteService from '@modules/notes/services/DeleteNoteService';
 
 const notesRouter = Router();
 

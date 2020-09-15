@@ -6,12 +6,12 @@ module.exports = {
   password: "docker",
   database: "private_notes",
   entities: [
-    "./src/models/*.ts"
+    "./src/modules/**/infra/typeorm/entities/*.ts"
   ],
   migrations: [
-    "./src/database/migrations/*.ts"
+    "./src/shared/infra/typeorm/migrations/*.ts"
   ],
   cli: {
-    "migrationsDir": "./dist/src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }

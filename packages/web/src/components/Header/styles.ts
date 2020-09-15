@@ -2,24 +2,30 @@ import { RefAttributes } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-interface ProfileProps extends RefAttributes<HTMLAnchorElement> {
-  signed: string;
+interface ContainerProps {
+  user: boolean;
 }
 
-export const Container = styled.div`
+interface ProfileProps extends RefAttributes<HTMLAnchorElement> {
+  $signed: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.user ? 'space-between' : 'center')};
   align-items: center;
   margin: 0 auto;
   max-width: 900px;
-  padding: 40px 20px 20px 40px;
+  padding: 40px 20px 40px 20px;
+
+  @media (max-width: 541px) {
+    justify-content: center;
+  }
 `;
 
-export const Content = styled.div``;
-
 export const Profile = styled(Link)<ProfileProps>`
-  visibility: ${(props) => (props.signed ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.$signed ? 'visible' : 'hidden')};
 
   display: flex;
   text-decoration: none;
@@ -49,7 +55,7 @@ export const Profile = styled(Link)<ProfileProps>`
     padding: 3px;
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 541px) {
     display: none;
   }
 `;

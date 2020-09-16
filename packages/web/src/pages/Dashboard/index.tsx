@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
 
         <Notes layout>
           {notes.map((note) => (
-            <Note note={note} deleteNote={handleDeleteNote} />
+            <Note key={note.id} note={note} deleteNote={handleDeleteNote} />
           ))}
         </Notes>
       </AnimateSharedLayout>

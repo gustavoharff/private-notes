@@ -1,6 +1,6 @@
 import React from 'react';
 import reactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
 

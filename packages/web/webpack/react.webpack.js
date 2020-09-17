@@ -25,7 +25,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
@@ -57,5 +56,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(rootPath, 'index.html')
     }),
-  ]
+  ],
 };

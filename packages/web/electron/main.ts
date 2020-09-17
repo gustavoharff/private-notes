@@ -19,7 +19,7 @@ function createWindow(): void {
     webPreferences: {
       nodeIntegration: true,
     },
-    // resizable: false,
+    titleBarStyle: 'hidden',
     autoHideMenuBar: true,
   });
 

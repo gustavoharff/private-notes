@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import '!style-loader!css-loader!react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
       display: none;
     }
+    -webkit-app-region: drag;
   }
 
   svg, img, a {
@@ -40,15 +41,26 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-user-drag: none;
   }
 
+  svg, img {
+    -webkit-app-region: drag !important;
+  }
+
   a {
     text-decoration: none;
+    -webkit-app-region: no-drag;
+
   }
 
   ul {
     list-style: none;
   }
 
+  input {
+    -webkit-app-region: no-drag;
+  }
+
   button {
+    -webkit-app-region: no-drag;
     cursor: pointer;
   }
 `;

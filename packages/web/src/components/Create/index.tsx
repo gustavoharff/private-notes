@@ -21,27 +21,26 @@ interface CreateProps {
 }
 
 const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
-  const [newTitleFocudes, setNewTitleFocudes] = useState(false);
-  const [newNoteTitle, setNewNoteTitle] = useState('');
-  const [newDescription, setnewDescription] = useState('');
+  const [titleFocused, setTitleFocused] = useState(false);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
   const { token } = useAuth();
 
-  const handleNewTitleFocudes = useCallback(() => {
-    setNewTitleFocudes(true);
+  const toggleTitleFocused = useCallback(() => {
+    setTitleFocused(true);
   }, []);
 
-  const handleNewTitleBlur = useCallback(() => {
-    setNewTitleFocudes(!!newNoteTitle || !!newDescription);
-  }, [newNoteTitle, newDescription]);
+  const toggleTitleBlur = useCallback(() => {
+    setTitleFocused(!!title || !!description);
+  }, [title, description]);
 
   const handleAddNote = useCallback(async () => {
     const response = await api.post(
       'notes',
       {
-        title: newNoteTitle !== '' ? newNoteTitle : 'Title not defined',
-        content:
-          newDescription !== '' ? newDescription : 'Description not defined',
+        title: title !== '' ? title : 'Title not defined',
+        content: description !== '' ? description : 'Description not defined',
       },
       {
         headers: {
@@ -50,38 +49,43 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
       },
     );
 
-    setNewNoteTitle('');
-    setnewDescription('');
-    setNewTitleFocudes(false);
+    setTitle('');
+    setDescription('');
+    setTitleFocused(false);
     setNotes([...notes, response.data]);
-  }, [setNotes, newNoteTitle, token, newDescription, notes]);
+  }, [setNotes, title, token, description, notes]);
 
   const handleTitleChange = useCallback((e) => {
-    setNewNoteTitle(e.target.value);
+    setTitle(e.target.value);
   }, []);
 
   const handleDescriptionChange = useCallback((e) => {
-    setnewDescription(e.target.value);
+    setDescription(e.target.value);
   }, []);
 
   return (
     <AnimatePresence>
       <AddNote layout>
-        <motion.form layout>
+        <motion.form
+          layout
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <motion.div layout>
             <Input
               show
               placeholder="Type the title here"
-              value={newNoteTitle}
+              value={title}
               onChange={handleTitleChange}
-              onFocus={handleNewTitleFocudes}
-              onBlur={handleNewTitleBlur}
+              onFocus={toggleTitleFocused}
+              onBlur={toggleTitleBlur}
             />
 
             <Input
-              show={newTitleFocudes}
+              show={titleFocused}
               placeholder="Type the description here"
-              value={newDescription}
+              value={description}
               onChange={handleDescriptionChange}
             />
           </motion.div>

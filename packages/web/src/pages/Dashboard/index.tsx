@@ -11,6 +11,7 @@ import Note from '../../components/Note';
 import Create from '../../components/Create';
 
 import { Container, Notes } from './styles';
+import Header from '../../components/Header';
 
 interface NoteProps {
   id: string;
@@ -53,17 +54,20 @@ const Dashboard: React.FC = () => {
   }, [token]);
 
   return (
-    <Container>
-      <AnimateSharedLayout>
-        <Create notes={notes} setNotes={setNotes} />
+    <>
+      <Header />
+      <Container>
+        <AnimateSharedLayout>
+          <Create notes={notes} setNotes={setNotes} />
 
-        <Notes layout>
-          {notes.map((note) => (
-            <Note key={note.id} note={note} deleteNote={handleDeleteNote} />
-          ))}
-        </Notes>
-      </AnimateSharedLayout>
-    </Container>
+          <Notes layout>
+            {notes.map((note) => (
+              <Note key={note.id} note={note} deleteNote={handleDeleteNote} />
+            ))}
+          </Notes>
+        </AnimateSharedLayout>
+      </Container>
+    </>
   );
 };
 

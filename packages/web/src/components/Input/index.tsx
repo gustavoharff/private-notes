@@ -17,7 +17,7 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFilled, setIsFilled] = useState(false);
-  const { fieldName, defaultValue, error, registerField } = useField(name);
+  const { fieldName, registerField } = useField(name);
 
   const handleInputBlur = useCallback(() => {
     setIsFilled(!!inputRef.current?.value);

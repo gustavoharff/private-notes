@@ -18,7 +18,7 @@ export const Container = styled(motion.li)`
   border-radius: 9px;
   border: 1px solid #5f6368;
   width: 100%;
-  max-width: 350px;
+  max-width: 320px;
   margin-top: 20px;
   align-items: center;
   justify-content: space-between;

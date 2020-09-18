@@ -8,8 +8,6 @@ import Routes from './routes';
 
 import { AuthProvider } from './hooks/auth';
 
-import Header from './components/Header';
-
 import { GlobalStyle } from './styles/global';
 
 Modal.setAppElement('#root');
@@ -17,7 +15,6 @@ Modal.setAppElement('#root');
 const App: React.FC = () => (
   <Router>
     <AuthProvider>
-      <Header />
       <Routes />
     </AuthProvider>
     <ToastContainer autoClose={3000} />

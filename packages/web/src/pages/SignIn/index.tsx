@@ -9,6 +9,7 @@ import { useAuth } from '../../hooks/auth';
 import Input from '../../components/Input';
 
 import { Container } from './styles';
+import AuthHeader from '../../components/AuthHeader';
 
 interface SignInFormData {
   email: string;
@@ -49,9 +50,8 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
+      <AuthHeader />
       <Form onSubmit={handleSubmit}>
-        <h1>Log in</h1>
-
         <span>Email adress</span>
         <Input name="email" placeholder="you@example.com" />
 

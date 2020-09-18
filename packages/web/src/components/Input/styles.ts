@@ -6,11 +6,15 @@ interface ContainerProps {
 
 export const Container = styled.input<ContainerProps>`
   background: none;
-  border: 0;
-  padding: 8px 0;
-  border-bottom: 1px solid #333;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #5f6368;
+  border-radius: 9px;
+  padding: 4px 10px;
   color: #fff;
   font-size: 14px;
+  line-height: 26px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 
   ${(props) =>
     props.isFilled &&
@@ -19,7 +23,7 @@ export const Container = styled.input<ContainerProps>`
     `}
 
   & + span {
-    margin-top: 22px;
+    margin-top: 14px;
   }
 
   &:focus {

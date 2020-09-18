@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { Container } from './styles';
 
 import { useAuth } from '../../hooks/auth';
+import Header from '../../components/Header';
 
 const Profile: React.FC = () => {
   const { signOut } = useAuth();
@@ -12,11 +13,14 @@ const Profile: React.FC = () => {
   }, [signOut]);
 
   return (
-    <Container>
-      <button type="button" onClick={handleLogout}>
-        Logout
-      </button>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <button type="button" onClick={handleLogout}>
+          Logout
+        </button>
+      </Container>
+    </>
   );
 };
 export default Profile;

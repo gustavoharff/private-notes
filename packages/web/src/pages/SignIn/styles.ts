@@ -13,19 +13,25 @@ const appearFromLeft = keyframes`
 `;
 
 export const Container = styled.div`
-  margin: 0 auto;
-  flex-grow: 1;
   display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
+  height: 100%;
 
   animation: ${appearFromLeft} 1s;
 
   form {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    width: 240px;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+    text-align: left;
 
     h1 {
       margin-bottom: 30px;
@@ -33,17 +39,22 @@ export const Container = styled.div`
     }
 
     span {
+      width: 100%;
       font-size: 14px;
+      margin-bottom: 8px;
     }
 
     button {
-      margin-top: 35px;
+      width: 100%;
+      max-width: 350px;
+      margin-top: 25px;
       height: 40px;
-      border-radius: 40px;
+      border-radius: 9px;
       background: #f9c74f;
-      border: 0;
+      border: 1px solid ${shade(0.2, '#f9c74f')};
       transition: 0.2s;
       font-weight: bold;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 
       &:hover {
         background: ${shade(0.2, '#f9c74f')};

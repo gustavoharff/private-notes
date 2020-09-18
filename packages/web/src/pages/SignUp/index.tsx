@@ -9,6 +9,7 @@ import api from '../../services/api';
 import Input from '../../components/Input';
 
 import { Container } from './styles';
+import AuthHeader from '../../components/AuthHeader';
 
 interface SignUpFormData {
   name: string;
@@ -19,41 +20,43 @@ interface SignUpFormData {
 const SignUp: React.FC = () => {
   const history = useHistory();
 
-  const handleSubmit = useCallback(async (data: SignUpFormData) => {
-    try {
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Name required'),
-        email: Yup.string()
-          .required('E-mail required')
-          .email('Enter a valid email address'),
-        password: Yup.string()
-          .required('Password required')
-          .min(6, 'At least 6 digits'),
-      });
+  const handleSubmit = useCallback(
+    async (data: SignUpFormData) => {
+      try {
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Name required'),
+          email: Yup.string()
+            .required('E-mail required')
+            .email('Enter a valid email address'),
+          password: Yup.string()
+            .required('Password required')
+            .min(6, 'At least 6 digits'),
+        });
 
-      await schema.validate(data, { abortEarly: false });
+        await schema.validate(data, { abortEarly: false });
 
-      await api.post('/users', data);
+        await api.post('/users', data);
 
-      toast.success('Account created.');
+        toast.success('Account created.');
 
-      history.push('/');
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        console.log(err);
+        history.push('/');
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          console.log(err);
 
-        return;
+          return;
+        }
+
+        toast.error('Unable to create account');
       }
-
-      toast.error('Unable to create account');
-    }
-  }, []);
+    },
+    [history],
+  );
 
   return (
     <Container>
+      <AuthHeader />
       <Form onSubmit={handleSubmit}>
-        <h1>Sign up</h1>
-
         <span>Full name</span>
         <Input name="name" placeholder="Enter you name" />
 

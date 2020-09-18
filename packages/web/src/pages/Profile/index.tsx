@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Container } from './styles';
 
 import { useAuth } from '../../hooks/auth';
-import Header from '../../components/Header';
+import UserHeader from '../../components/UserHeader';
 
 const Profile: React.FC = () => {
   const { signOut } = useAuth();
@@ -15,7 +15,7 @@ const Profile: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <UserHeader />
       <Container layout>
         <motion.button
           initial={{ opacity: 0 }}

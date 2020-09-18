@@ -7,7 +7,7 @@ import Logo from '../../assets/logo-with-name.svg';
 
 import { Container, Profile } from './styles';
 
-const Header: React.FC = () => {
+const UserHeader: React.FC = () => {
   const { user } = useAuth();
 
   return (
@@ -37,4 +37,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default UserHeader;

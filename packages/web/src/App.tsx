@@ -9,17 +9,21 @@ import Routes from './routes';
 import { AuthProvider } from './hooks/auth';
 
 import { GlobalStyle } from './styles/global';
+import TitleBar from './components/TitleBar';
 
 Modal.setAppElement('#root');
 
 const App: React.FC = () => (
-  <Router>
-    <AuthProvider>
-      <Routes />
-    </AuthProvider>
-    <ToastContainer autoClose={3000} />
-    <GlobalStyle />
-  </Router>
+  <>
+    <TitleBar />
+    <Router>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+      <ToastContainer autoClose={3000} />
+      <GlobalStyle />
+    </Router>
+  </>
 );
 
 reactDOM.render(<App />, document.getElementById('root'));

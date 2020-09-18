@@ -32,22 +32,15 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
       display: none;
     }
-    -webkit-app-region: drag;
   }
 
   svg, img, a {
     user-select: none;
     -moz-window-dragging: none;
-    -webkit-user-drag: none;
-  }
-
-  svg, img {
-    -webkit-app-region: drag !important;
   }
 
   a {
     text-decoration: none;
-    -webkit-app-region: no-drag;
 
   }
 
@@ -55,12 +48,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  input {
-    -webkit-app-region: no-drag;
-  }
-
   button {
-    -webkit-app-region: no-drag;
     cursor: pointer;
   }
 `;

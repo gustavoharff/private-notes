@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { motion } from 'framer-motion';
 
 import { Container } from './styles';
 
@@ -15,10 +16,17 @@ const Profile: React.FC = () => {
   return (
     <>
       <Header />
-      <Container>
-        <button type="button" onClick={handleLogout}>
+      <Container layout>
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          layout
+          type="button"
+          onClick={handleLogout}
+        >
           Logout
-        </button>
+        </motion.button>
       </Container>
     </>
   );

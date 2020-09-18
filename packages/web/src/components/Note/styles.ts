@@ -46,7 +46,7 @@ export const ContentNote = styled(motion.div)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 251px;
+  max-width: 210px;
   word-wrap: break-word;
 
   span {
@@ -56,5 +56,5 @@ export const ContentNote = styled(motion.div)`
 
 export const ButtonsContainer = styled(motion.div)`
   display: flex;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
 `;

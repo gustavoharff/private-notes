@@ -65,13 +65,13 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
 
   return (
     <AnimatePresence>
-      <AddNote layout>
-        <motion.form
-          layout
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
+      <AddNote
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <motion.form layout>
           <motion.div layout>
             <Input
               show

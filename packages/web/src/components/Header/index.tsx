@@ -12,7 +12,7 @@ const Header: React.FC = () => {
 
   return (
     <Container user={!!user}>
-      <Link to="/">
+      <Link to="/dashboard">
         <Logo />
       </Link>
       {user && (
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             <img
               src={
                 user.avatar !== null
-                  ? user.avatar
+                  ? `http://localhost:3333/files/${user.avatar}`
                   : 'https://api.adorable.io/avatars/50/profile.png'
               }
               alt="Avatar"

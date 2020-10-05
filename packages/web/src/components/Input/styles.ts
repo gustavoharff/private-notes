@@ -4,6 +4,7 @@ import Tooltip from '../Tooltip';
 interface ContainerProps {
   isFilled: boolean;
   isErrored: boolean;
+  isFocused: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -21,21 +22,22 @@ export const Container = styled.div<ContainerProps>`
   }
 
   ${(props) =>
-    props.isErrored &&
-    css`
-      border-color: #c53030;
-    `}
-
-  ${(props) =>
     props.isFilled &&
     css`
       border-color: #f9c74f;
     `}
 
+  ${(props) =>
+    props.isFocused &&
+    css`
+      border-color: #f9c74f;
+    `}
 
-    &:focus {
-    border-color: #f9c74f;
-  }
+    ${(props) =>
+    props.isErrored &&
+    css`
+      border-color: #c53030;
+    `}
 
   input {
     font-size: 14px;

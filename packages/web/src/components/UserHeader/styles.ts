@@ -18,10 +18,6 @@ export const Container = styled.div<ContainerProps>`
   margin: 0 auto;
   max-width: 900px;
   padding: 40px 20px 40px 20px;
-
-  @media (max-width: 541px) {
-    justify-content: center;
-  }
 `;
 
 export const Profile = styled(Link)<ProfileProps>`
@@ -55,7 +51,12 @@ export const Profile = styled(Link)<ProfileProps>`
     padding: 3px;
   }
 
-  @media (max-width: 541px) {
-    display: none;
+  @media (max-width: 500px) {
+    justify-content: space-between;
+    padding-left: 10px;
+
+    div {
+      display: none;
+    }
   }
 `;

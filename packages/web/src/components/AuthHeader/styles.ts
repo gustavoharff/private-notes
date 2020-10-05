@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 440px;
+  width: 100%;
+  justify-content: center;
   display: flex;
+  margin: 0 auto;
   align-items: center;
 
   div {
@@ -12,7 +14,6 @@ export const Container = styled.div`
   }
 
   @media (max-width: 500px) {
-    margin: 0 auto;
     flex-direction: column;
 
     img {

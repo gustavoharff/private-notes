@@ -19,7 +19,7 @@
     "build:electron": "webpack --config webpack/electron.webpack.js --mode production",
     "build:react": "webpack --config webpack/react.webpack.js --mode production",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --dir --publish never"
+    "package:dist": "electron-builder --mac --publish never"
   },
   "dependencies": {
     "@unform/core": "^2.1.3",

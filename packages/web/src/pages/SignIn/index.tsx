@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
@@ -10,6 +11,7 @@ import Input from '../../components/Input';
 
 import { Container } from './styles';
 import AuthHeader from '../../components/AuthHeader';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 interface SignInFormData {
   email: string;
@@ -17,11 +19,14 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
   const { signIn } = useAuth();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
       try {
+        formRef.current?.setErrors({});
+
         const schema = Yup.object().shape({
           email: Yup.string()
             .required('E-mail required')
@@ -37,12 +42,14 @@ const SignIn: React.FC = () => {
         });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
-          console.log(err);
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
 
           return;
         }
 
-        toast.error('Authentication failure.');
+        toast.error('Authentication failure');
       }
     },
     [signIn],
@@ -51,7 +58,7 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <AuthHeader />
-      <Form onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
         <span>Email adress</span>
         <Input name="email" placeholder="you@example.com" />
 

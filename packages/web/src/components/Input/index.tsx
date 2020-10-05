@@ -7,7 +7,8 @@ import React, {
 } from 'react';
 import { useField } from '@unform/core';
 
-import { Container } from './styles';
+import { FiAlertCircle } from 'react-icons/fi';
+import { Container, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -17,7 +18,7 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFilled, setIsFilled] = useState(false);
-  const { fieldName, registerField } = useField(name);
+  const { fieldName, error, defaultValue, registerField } = useField(name);
 
   const handleInputBlur = useCallback(() => {
     setIsFilled(!!inputRef.current?.value);
@@ -32,12 +33,21 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <Container
-      isFilled={isFilled}
-      onBlur={handleInputBlur}
-      ref={inputRef}
-      {...rest}
-    />
+    <>
+      <Container isErrored={!!error} isFilled={isFilled}>
+        <input
+          defaultValue={defaultValue}
+          onBlur={handleInputBlur}
+          ref={inputRef}
+          {...rest}
+        />
+        {error && (
+          <Error title={error}>
+            <FiAlertCircle color="#c53030" size={20} />
+          </Error>
+        )}
+      </Container>
+    </>
   );
 };
 

@@ -1,15 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
+import { FormHandles } from '@unform/core';
 import api from '../../services/api';
 
 import Input from '../../components/Input';
 
 import { Container } from './styles';
 import AuthHeader from '../../components/AuthHeader';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 interface SignUpFormData {
   name: string;
@@ -18,11 +20,14 @@ interface SignUpFormData {
 }
 
 const SignUp: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
   const history = useHistory();
 
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
       try {
+        formRef.current?.setErrors({});
+
         const schema = Yup.object().shape({
           name: Yup.string().required('Name required'),
           email: Yup.string()
@@ -37,17 +42,19 @@ const SignUp: React.FC = () => {
 
         await api.post('/users', data);
 
-        toast.success('Account created.');
+        toast.success('Account was created');
 
         history.push('/');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
-          console.log(err);
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
 
           return;
         }
 
-        toast.error('Unable to create account');
+        toast.error('Account could not be created');
       }
     },
     [history],
@@ -56,7 +63,7 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       <AuthHeader />
-      <Form onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
         <span>Full name</span>
         <Input name="name" placeholder="Enter you name" />
 

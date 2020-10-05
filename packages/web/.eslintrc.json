@@ -33,6 +33,7 @@
     "prettier/prettier": "error",
     "@typescript-eslint/ban-types": "off",
     "camelcase": "off",
+    "no-unused-expressions": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",

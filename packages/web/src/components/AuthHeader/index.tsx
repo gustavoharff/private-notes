@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from './styles';
 
-import icon from '../../assets/iconx64.png';
+import icon from '../../assets/icon-64.png';
 
 const AuthHeader: React.FC = () => (
   <Container>

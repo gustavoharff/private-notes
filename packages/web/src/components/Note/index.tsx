@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiTrash, FiEyeOff, FiEye } from 'react-icons/fi';
 
@@ -16,9 +16,9 @@ interface NoteProps {
 const Note: React.FC<NoteProps> = ({ deleteNote, note }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => {
+  const toggleOpen = useCallback(() => {
     setIsOpen(!isOpen);
-  };
+  }, [isOpen]);
 
   return (
     <Container layout key={note.id}>

@@ -3,15 +3,14 @@ import { Link, useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-
 import { FormHandles } from '@unform/core';
-import api from '../../services/api';
 
+import api from '../../services/api';
 import Input from '../../components/Input';
+import Header from '../../components/Header';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 import { Container } from './styles';
-import AuthHeader from '../../components/AuthHeader';
-import getValidationErrors from '../../utils/getValidationErrors';
 
 interface SignUpFormData {
   name: string;
@@ -62,7 +61,7 @@ const SignUp: React.FC = () => {
 
   return (
     <Container>
-      <AuthHeader />
+      <Header />
       <Form ref={formRef} onSubmit={handleSubmit}>
         <span>Full name</span>
         <Input name="name" placeholder="Enter you name" />

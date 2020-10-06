@@ -22,6 +22,7 @@ interface CreateProps {
 
 const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
   const [titleFocused, setTitleFocused] = useState(false);
+  const [descriptionFocused, setDescriptionFocused] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -32,8 +33,18 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
   }, []);
 
   const toggleTitleBlur = useCallback(() => {
-    setTitleFocused(!!title || !!description);
+    setTimeout(() => {
+      setTitleFocused(!!title || !!description);
+    }, 1000);
   }, [title, description]);
+
+  const toggleDescriptionFocused = useCallback(() => {
+    setDescriptionFocused(true);
+  }, []);
+
+  const toggleDescriptionBlur = useCallback(() => {
+    setDescriptionFocused(false);
+  }, []);
 
   const handleAddNote = useCallback(async () => {
     const response = await api.post(
@@ -83,9 +94,11 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
             />
 
             <Input
-              show={titleFocused}
+              show={titleFocused || descriptionFocused}
               placeholder="Type the description here"
               value={description}
+              onFocus={toggleDescriptionFocused}
+              onBlur={toggleDescriptionBlur}
               onChange={handleDescriptionChange}
             />
           </motion.div>

@@ -4,12 +4,13 @@ import { HashRouter as Router } from 'react-router-dom';
 import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
 
+import TitleBar from './components/TitleBar';
+
 import Routes from './routes';
 
 import { AuthProvider } from './hooks/auth';
 
 import { GlobalStyle } from './styles/global';
-import TitleBar from './components/TitleBar';
 
 Modal.setAppElement('#root');
 

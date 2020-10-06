@@ -11,7 +11,7 @@ import Note from '../../components/Note';
 import Create from '../../components/Create';
 
 import { Container, Notes } from './styles';
-import UserHeader from '../../components/UserHeader';
+import Header from '../../components/Header';
 
 interface NoteProps {
   id: string;
@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <UserHeader />
+      <Header />
       <Container>
         <AnimateSharedLayout>
           <Create notes={notes} setNotes={setNotes} />

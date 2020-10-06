@@ -22,9 +22,10 @@ class NotesController {
 
   public async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
+    const user_id = request.user.id;
     const deleteNote = container.resolve(DeleteNoteService);
 
-    await deleteNote.execute(id);
+    await deleteNote.execute({ note_id: id, user_id });
 
     return response.send();
   }

@@ -28,21 +28,21 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
 
   const { token } = useAuth();
 
-  const toggleTitleFocused = useCallback(() => {
+  const handleTitleFocused = useCallback(() => {
     setTitleFocused(true);
   }, []);
 
-  const toggleTitleBlur = useCallback(() => {
+  const handleTitleBlur = useCallback(() => {
     setTimeout(() => {
-      setTitleFocused(!!title || !!description);
-    }, 1000);
-  }, [title, description]);
+      setTitleFocused(false);
+    }, 500);
+  }, []);
 
-  const toggleDescriptionFocused = useCallback(() => {
+  const handleDescriptionFocused = useCallback(() => {
     setDescriptionFocused(true);
   }, []);
 
-  const toggleDescriptionBlur = useCallback(() => {
+  const handleDescriptionBlur = useCallback(() => {
     setDescriptionFocused(false);
   }, []);
 
@@ -89,17 +89,17 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
               placeholder="Type the title here"
               value={title}
               onChange={handleTitleChange}
-              onFocus={toggleTitleFocused}
-              onBlur={toggleTitleBlur}
+              onFocus={handleTitleFocused}
+              onBlur={handleTitleBlur}
             />
 
             <Input
-              show={titleFocused || descriptionFocused}
+              show={titleFocused || descriptionFocused || !!description}
               placeholder="Type the description here"
               value={description}
-              onFocus={toggleDescriptionFocused}
-              onBlur={toggleDescriptionBlur}
               onChange={handleDescriptionChange}
+              onFocus={handleDescriptionFocused}
+              onBlur={handleDescriptionBlur}
             />
           </motion.div>
 

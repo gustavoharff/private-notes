@@ -1,6 +1,7 @@
+import { getRepository, Repository } from 'typeorm';
+
 import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
-import { getRepository, Repository } from 'typeorm';
 
 import User from '../entities/User';
 
@@ -24,7 +25,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   public async save(user: User): Promise<User> {
-    return this.usersRepository.save(user);
+    return this.ormRepository.save(user);
   }
 
   public async findByEmail(email: string): Promise<User | undefined> {

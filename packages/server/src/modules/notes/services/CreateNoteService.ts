@@ -1,20 +1,23 @@
-import { getRepository } from 'typeorm';
+import { injectable, inject } from 'tsyringe';
 
 import Note from '@modules/notes/infra/typeorm/entities/Note';
+import INotesRepository from '../repositories/INotesRepository';
 
-interface Request {
+interface IRequest {
   title: string;
   content: string;
-  user: string;
+  user_id: string;
 }
 
+@injectable()
 class CreateNoteService {
-  public async execute({ title, content, user }: Request): Promise<Note> {
-    const notesRepository = getRepository(Note);
+  constructor(
+    @inject('NotesRepository')
+    private notesRepository: INotesRepository,
+  ) {}
 
-    const note = notesRepository.create({ title, content, user_id: user });
-
-    await notesRepository.save(note);
+  public async execute({ title, content, user_id }: IRequest): Promise<Note> {
+    const note = await this.notesRepository.create({ title, content, user_id });
 
     return note;
   }

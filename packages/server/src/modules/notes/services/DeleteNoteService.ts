@@ -1,12 +1,16 @@
-import { getRepository } from 'typeorm';
+import { injectable, inject } from 'tsyringe';
 
-import Note from '@modules/notes/infra/typeorm/entities/Note';
+import INotesRepository from '../repositories/INotesRepository';
 
+@injectable()
 class DeleteNoteService {
-  public async execute(id: string): Promise<void> {
-    const notesRepository = getRepository(Note);
+  constructor(
+    @inject('NotesRepository')
+    private notesRepository: INotesRepository,
+  ) {}
 
-    await notesRepository.delete(id);
+  public async execute(id: string): Promise<void> {
+    await this.notesRepository.delete(id);
   }
 }
 

@@ -3,6 +3,7 @@ import { v4 } from 'uuid';
 import INotesRepository from '@modules/notes/repositories/INotesRepository';
 import ICreateNoteDTO from '@modules/notes/dtos/ICreateNoteDTO';
 
+import IDeleteNoteDTO from '@modules/notes/dtos/IDeleteNoteDTO';
 import Note from '../../infra/typeorm/entities/Note';
 
 class FakeNotesRepository implements INotesRepository {
@@ -27,8 +28,8 @@ class FakeNotesRepository implements INotesRepository {
     return note;
   }
 
-  public async delete(id: string): Promise<void> {
-    const index = this.notes.findIndex(note => note.id === id);
+  public async delete({ note_id, user_id }: IDeleteNoteDTO): Promise<void> {
+    const index = this.notes.findIndex(note => note.id === note_id);
 
     this.notes.splice(index, 1);
   }

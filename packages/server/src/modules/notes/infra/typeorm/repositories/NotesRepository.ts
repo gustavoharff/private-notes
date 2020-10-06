@@ -3,6 +3,8 @@ import { getRepository, Repository } from 'typeorm';
 import INotesRepository from '@modules/notes/repositories/INotesRepository';
 import ICreateNoteDTO from '@modules/notes/dtos/ICreateNoteDTO';
 
+import AppError from '@shared/errors/AppError';
+import IDeleteNoteDTO from '@modules/notes/dtos/IDeleteNoteDTO';
 import Note from '../entities/Note';
 
 class NotesRepository implements INotesRepository {
@@ -28,8 +30,19 @@ class NotesRepository implements INotesRepository {
     return note;
   }
 
-  public async delete(id: string): Promise<void> {
-    await this.ormRepository.delete(id);
+  public async delete({ note_id, user_id }: IDeleteNoteDTO): Promise<void> {
+    const noteOwner = await this.ormRepository.findOne({
+      where: {
+        id: note_id,
+        user_id,
+      },
+    });
+
+    if (!noteOwner) {
+      throw new AppError('You are not the owner of this note');
+    }
+
+    await this.ormRepository.delete(note_id);
   }
 
   public async findByUserId(user_id: string): Promise<Note[]> {

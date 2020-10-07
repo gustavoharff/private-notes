@@ -3,9 +3,7 @@ import { HTMLMotionProps } from 'framer-motion';
 
 import { Container } from './styles';
 
-interface InputProps extends HTMLMotionProps<'input'> {
-  show: boolean;
-}
+type InputProps = HTMLMotionProps<'input'>;
 
 const Input: React.FC<InputProps> = (props) => <Container layout {...props} />;
 

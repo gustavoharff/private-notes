@@ -85,7 +85,6 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
         <motion.form layout>
           <motion.div layout>
             <Input
-              show
               placeholder="Type the title here"
               value={title}
               onChange={handleTitleChange}
@@ -93,14 +92,21 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
               onBlur={handleTitleBlur}
             />
 
-            <Input
-              show={titleFocused || descriptionFocused || !!description}
-              placeholder="Type the description here"
-              value={description}
-              onChange={handleDescriptionChange}
-              onFocus={handleDescriptionFocused}
-              onBlur={handleDescriptionBlur}
-            />
+            <AnimatePresence>
+              {(titleFocused || descriptionFocused || !!description) && (
+                <Input
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  placeholder="Type the description here"
+                  value={description}
+                  onChange={handleDescriptionChange}
+                  onFocus={handleDescriptionFocused}
+                  onBlur={handleDescriptionBlur}
+                />
+              )}
+            </AnimatePresence>
           </motion.div>
 
           <motion.button layout type="button" onClick={handleAddNote}>

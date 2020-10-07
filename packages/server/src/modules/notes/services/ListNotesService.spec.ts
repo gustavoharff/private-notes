@@ -1,11 +1,16 @@
 import FakeNotesRepository from '../repositories/fakes/FakeNotesRepository';
 import ListNotesService from './ListNotesService';
 
-describe('ListUserNotes', () => {
-  it('should be able to list the user notes', async () => {
-    const fakeNotesRepository = new FakeNotesRepository();
-    const listNotes = new ListNotesService(fakeNotesRepository);
+let fakeNotesRepository: FakeNotesRepository;
+let listNotes: ListNotesService;
 
+describe('ListUserNotes', () => {
+  beforeEach(() => {
+    fakeNotesRepository = new FakeNotesRepository();
+    listNotes = new ListNotesService(fakeNotesRepository);
+  });
+
+  it('should be able to list the user notes', async () => {
     const note = await fakeNotesRepository.create({
       title: 'note-title',
       content: 'note-content',

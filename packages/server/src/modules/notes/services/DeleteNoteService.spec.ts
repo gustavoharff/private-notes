@@ -2,11 +2,16 @@ import AppError from '@shared/errors/AppError';
 import FakeNotesRepository from '../repositories/fakes/FakeNotesRepository';
 import DeleteNoteService from './DeleteNoteService';
 
-describe('DeleteNote', () => {
-  it('should be able to delete a note', async () => {
-    const fakeNotesRepository = new FakeNotesRepository();
-    const deleteNoteService = new DeleteNoteService(fakeNotesRepository);
+let fakeNotesRepository: FakeNotesRepository;
+let deleteNoteService: DeleteNoteService;
 
+describe('DeleteNote', () => {
+  beforeEach(() => {
+    fakeNotesRepository = new FakeNotesRepository();
+    deleteNoteService = new DeleteNoteService(fakeNotesRepository);
+  });
+
+  it('should be able to delete a note', async () => {
     const note = await fakeNotesRepository.create({
       user_id: 'user-id',
       title: 'note-title',
@@ -24,9 +29,6 @@ describe('DeleteNote', () => {
   });
 
   it('should not be able to delete a note with a non-existing note_id', async () => {
-    const fakeNotesRepository = new FakeNotesRepository();
-    const deleteNoteService = new DeleteNoteService(fakeNotesRepository);
-
     const note = await fakeNotesRepository.create({
       user_id: 'user-id',
       title: 'note-title',
@@ -42,9 +44,6 @@ describe('DeleteNote', () => {
   });
 
   it('should not be able to delete a note with a non-existing user_id', async () => {
-    const fakeNotesRepository = new FakeNotesRepository();
-    const deleteNoteService = new DeleteNoteService(fakeNotesRepository);
-
     const note = await fakeNotesRepository.create({
       user_id: 'user-id',
       title: 'note-title',

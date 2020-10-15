@@ -12,6 +12,7 @@ import Input from '../../components/Input';
 import { Container } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 import Header from '../../components/Header';
+import Button from '../../components/Button';
 
 interface SignInFormData {
   email: string;
@@ -69,7 +70,7 @@ const SignIn: React.FC = () => {
           placeholder="Enter you password"
         />
 
-        <button type="submit">Log In</button>
+        <Button type="submit">Log In</Button>
 
         <span>
           Dont have an account?<Link to="/signup">Sign Up</Link>

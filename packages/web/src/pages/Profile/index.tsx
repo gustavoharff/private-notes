@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
-import { motion } from 'framer-motion';
 
 import { Container } from './styles';
 
 import { useAuth } from '../../hooks/auth';
 import Header from '../../components/Header';
+import Button from '../../components/Button';
 
 const Profile: React.FC = () => {
   const { signOut } = useAuth();
@@ -17,7 +17,7 @@ const Profile: React.FC = () => {
     <>
       <Header />
       <Container layout>
-        <motion.button
+        <Button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -26,7 +26,7 @@ const Profile: React.FC = () => {
           onClick={handleLogout}
         >
           Logout
-        </motion.button>
+        </Button>
       </Container>
     </>
   );

@@ -11,6 +11,7 @@ import Header from '../../components/Header';
 import getValidationErrors from '../../utils/getValidationErrors';
 
 import { Container } from './styles';
+import Button from '../../components/Button';
 
 interface SignUpFormData {
   name: string;
@@ -76,7 +77,7 @@ const SignUp: React.FC = () => {
           placeholder="Enter you password"
         />
 
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
 
         <span>
           Already have an account?<Link to="/">Log In</Link>

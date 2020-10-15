@@ -28,7 +28,7 @@ const Header: React.FC = () => {
               <img
                 src={
                   user.avatar !== null
-                    ? `http://localhost:3333/files/${user.avatar}`
+                    ? `https://notes.gustavoharff.com/files/${user.avatar}`
                     : 'https://api.adorable.io/avatars/50/profile.png'
                 }
                 alt="Avatar"

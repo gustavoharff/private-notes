@@ -22,7 +22,7 @@ interface NoteProps {
 const Dashboard: React.FC = () => {
   const [notes, setNotes] = useState<NoteProps[]>([]);
 
-  const { token } = useAuth();
+  const { token, signOut } = useAuth();
 
   const handleDeleteNote = useCallback(
     async (id: string) => {
@@ -50,8 +50,11 @@ const Dashboard: React.FC = () => {
           Authorization: `Beader ${token}`,
         },
       })
-      .then((response) => setNotes(response.data));
-  }, [token]);
+      .then((response) => setNotes(response.data))
+      .catch(() => {
+        signOut();
+      });
+  }, [token, signOut]);
 
   return (
     <>

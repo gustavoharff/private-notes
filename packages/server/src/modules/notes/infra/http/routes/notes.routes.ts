@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { celebrate, Segments, Joi } from 'celebrate';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 
@@ -11,8 +12,25 @@ notesRouter.use(ensureAuthenticated);
 
 notesRouter.get('/', notesController.index);
 
-notesRouter.post('/', notesController.create);
+notesRouter.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      title: Joi.string().required(),
+      content: Joi.string().required(),
+    },
+  }),
+  notesController.create,
+);
 
-notesRouter.delete('/:id', notesController.delete);
+notesRouter.delete(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+  }),
+  notesController.delete,
+);
 
 export default notesRouter;

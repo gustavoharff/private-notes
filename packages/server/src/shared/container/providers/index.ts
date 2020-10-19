@@ -1,6 +1,9 @@
 import { container } from 'tsyringe';
 
+import mailConfig from '@config/mail';
+
 import MailTrapProvider from './MailProvider/implementations/MailTrapProvider';
+import SESMailProvider from './MailProvider/implementations/SESMailProvider';
 import IMailProvider from './MailProvider/models/IMailProvider';
 
 import HandlebarsMailTemplateProvider from './MailTemplateProvider/implementations/HandlebarsMailTemplateProvider';
@@ -14,7 +17,10 @@ container.registerSingleton<IStorageProvider>(
   DiskStorageProvider,
 );
 
-container.registerSingleton<IMailProvider>('MailProvider', MailTrapProvider);
+container.registerSingleton<IMailProvider>(
+  'MailProvider',
+  mailConfig.driver === 'mailtrap' ? MailTrapProvider : SESMailProvider,
+);
 
 container.registerSingleton<IMailTemplateProvider>(
   'MailTemplateProvider',

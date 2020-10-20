@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
@@ -9,7 +9,6 @@ import Input from '../../components/Input';
 
 import { Container } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
-import Header from '../../components/Header';
 import Button from '../../components/Button';
 import api from '../../services/api';
 
@@ -18,14 +17,10 @@ interface ResetPasswordFormData {
   password_confirmation: string;
 }
 
-interface Params {
-  token: string;
-}
-
 const ResetPassword: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
-  const { token } = useParams<Params>();
+  const location = useLocation();
 
   const handleSubmit = useCallback(
     async (data: ResetPasswordFormData) => {
@@ -45,6 +40,8 @@ const ResetPassword: React.FC = () => {
         await schema.validate(data, { abortEarly: false });
 
         const { password, password_confirmation } = data;
+
+        const token = location.search.replace('?token=', '');
 
         if (!token) {
           toast.error('Token invalid');
@@ -72,7 +69,7 @@ const ResetPassword: React.FC = () => {
         toast.error('Error resetting password');
       }
     },
-    [token, history],
+    [history, location.search],
   );
 
   return (

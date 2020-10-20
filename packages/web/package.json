@@ -83,6 +83,10 @@
     "appId": "com.gustavoharff.one",
     "productName": "Private Notes",
     "copyright": "Copyright © 2020 Gustavo Harff",
+    "protocols": {
+      "name": "electron-deep-linking",
+      "schemes": ["privatenotes"]
+    },
     "files": [
       "dist/"
     ],

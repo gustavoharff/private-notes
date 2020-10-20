@@ -77,10 +77,10 @@ const SignUp: React.FC = () => {
           placeholder="Enter you password"
         />
 
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit">Sign up</Button>
 
         <span>
-          Already have an account?<Link to="/">Log In</Link>
+          Already have an account?<Link to="/">Log in</Link>
         </span>
       </Form>
     </Container>

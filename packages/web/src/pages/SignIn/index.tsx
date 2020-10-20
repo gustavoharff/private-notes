@@ -70,10 +70,14 @@ const SignIn: React.FC = () => {
           placeholder="Enter you password"
         />
 
-        <Button type="submit">Log In</Button>
+        <Button type="submit">Log in</Button>
 
         <span>
-          Dont have an account?<Link to="/signup">Sign Up</Link>
+          Forgot your password?<Link to="/forgot">Recover password</Link>
+        </span>
+
+        <span>
+          Dont have an account?<Link to="/signup">Sign up</Link>
         </span>
       </Form>
     </Container>

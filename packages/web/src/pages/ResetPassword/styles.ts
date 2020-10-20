@@ -35,7 +35,7 @@ export const Container = styled.div`
 
     h1 {
       margin-bottom: 30px;
-      font-size: 36px;
+      font-size: 20px;
     }
 
     span {

@@ -39,12 +39,12 @@ export const Container = styled(motion.div)`
       }
 
       svg {
-        color: #999591;
+        color: #f9c74f;
         width: 25px;
         height: 25px;
 
         &:hover {
-          color: ${shade(0.2, '#999591')};
+          color: ${shade(0.2, '#f9c74f')};
         }
       }
     }

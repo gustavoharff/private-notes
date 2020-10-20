@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'https://notes.gustavoharff.com/',
-});
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
-// const api = axios.create({
-//   baseURL: 'http://localhost:3333',
-// });
+const api = axios.create({
+  baseURL: isDevelopment
+    ? 'http://localhost:3333'
+    : 'https://notes.gustavoharff.com/',
+});
 
 export default api;

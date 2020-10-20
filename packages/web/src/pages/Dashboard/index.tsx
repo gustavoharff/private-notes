@@ -22,7 +22,7 @@ interface NoteProps {
 const Dashboard: React.FC = () => {
   const [notes, setNotes] = useState<NoteProps[]>([]);
 
-  const { signOut } = useAuth();
+  const { signOut, updateUser } = useAuth();
 
   const handleDeleteNote = useCallback(async (id: string) => {
     await api.delete(`notes/${id}`);
@@ -34,12 +34,14 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     api
-      .get('notes')
-      .then((response) => setNotes(response.data))
-      .catch(() => {
-        signOut();
+      .get('profile')
+      .then((response) => updateUser(response.data))
+      .then(() => {
+        signOut;
       });
-  }, [signOut]);
+
+    api.get('notes').then((response) => setNotes(response.data));
+  }, [updateUser, signOut]);
 
   return (
     <>

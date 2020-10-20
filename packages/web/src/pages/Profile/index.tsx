@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useRef } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useRef } from 'react';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { Form } from '@unform/web';
@@ -27,6 +27,15 @@ const Profile: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { signOut, user, updateUser } = useAuth();
   const history = useHistory();
+
+  useEffect(() => {
+    api
+      .get('profile')
+      .then((response) => updateUser(response.data))
+      .then(() => {
+        signOut;
+      });
+  }, [signOut, updateUser]);
 
   const handleSubmit = useCallback(
     async (data: ProfileFormData) => {

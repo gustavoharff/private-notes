@@ -1,6 +1,6 @@
 {
   "name": "private-notes",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Some notes",
   "keywords": [],
   "license": "MIT",
@@ -19,7 +19,7 @@
     "build:electron": "webpack --config webpack/electron.webpack.js --mode production",
     "build:react": "webpack --config webpack/react.webpack.js --mode production",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --mac --publish never"
+    "package:dist": "electron-builder --mac --win --linux --publish never"
   },
   "dependencies": {
     "@unform/core": "^2.1.3",

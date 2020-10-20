@@ -4,22 +4,118 @@ import { motion } from 'framer-motion';
 
 export const Container = styled(motion.div)`
   display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  height: calc(100vh - 60px);
+  margin: 0 auto;
+  height: 100%;
+  padding: 40px 40px;
 
-  button {
+  position: relative;
+
+  > header {
+    position: absolute;
+    padding: 0 20px;
+    height: 120px;
     width: 100%;
-    max-width: 350px;
-    margin-top: 25px;
-    height: 40px;
-    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    /* background: #28262e; */
+    top: 0;
+    left: 0;
+
+    div {
+      width: 100%;
+      display: flex;
+      margin: 0 auto;
+      max-width: 900px;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        border: 0;
+        background: none;
+      }
+
+      svg {
+        color: #999591;
+        width: 25px;
+        height: 25px;
+
+        &:hover {
+          color: ${shade(0.2, '#999591')};
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    text-align: left;
+
+    span {
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 8px;
+
+      > a {
+        color: #f9c74f;
+        margin-left: 5px;
+        transition: 0.2s;
+
+        &:hover {
+          color: ${shade(0.2, '#f9c74f')};
+        }
+      }
+    }
+
+    button + span {
+      margin-top: 25px;
+    }
+  }
+`;
+
+export const AvatarInput = styled.div`
+  display: flex;
+  position: relative;
+  width: 186px;
+
+  img {
+    width: 186px;
+    height: 186px;
+    border-radius: 50%;
+  }
+
+  label {
+    position: absolute;
+    width: 48px;
+    height: 48px;
     background: #f9c74f;
-    border: 1px solid ${shade(0.2, '#f9c74f')};
+    border-radius: 50%;
+    right: 0;
+    bottom: 0;
+    border: 0;
     transition: 0.2s;
-    font-weight: bold;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      display: none;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      color: #191622;
+    }
 
     &:hover {
       background: ${shade(0.2, '#f9c74f')};

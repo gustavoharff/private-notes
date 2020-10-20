@@ -23,6 +23,7 @@ interface AuthContextData {
   token: string;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
+  updateUser(user: User): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -33,6 +34,8 @@ const AuthProvider: React.FC = ({ children }) => {
     const user = localStorage.getItem('@PrivateNotes:user');
 
     if (token && user) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
       return { token, user: JSON.parse(user) };
     }
 
@@ -50,6 +53,8 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@PrivateNotes:token', token);
     localStorage.setItem('@PrivateNotes:user', JSON.stringify(user));
 
+    api.defaults.headers.authorization = `Bearer ${token}`;
+
     setData({ token, user });
   }, []);
 
@@ -60,9 +65,27 @@ const AuthProvider: React.FC = ({ children }) => {
     setData({} as AuthState);
   }, []);
 
+  const updateUser = useCallback(
+    (user: User) => {
+      localStorage.setItem('@PrivateNotes:user', JSON.stringify(user));
+
+      setData({
+        token: data.token,
+        user,
+      });
+    },
+    [data.token],
+  );
+
   return (
     <AuthContext.Provider
-      value={{ user: data.user, signIn, signOut, token: data.token }}
+      value={{
+        user: data.user,
+        signIn,
+        signOut,
+        token: data.token,
+        updateUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

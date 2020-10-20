@@ -29,9 +29,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     color: #E1E1E6;
     background: #191622;
-    ::-webkit-scrollbar {
-      display: none;
-    }
   }
 
   svg, img, a {

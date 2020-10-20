@@ -22,39 +22,24 @@ interface NoteProps {
 const Dashboard: React.FC = () => {
   const [notes, setNotes] = useState<NoteProps[]>([]);
 
-  const { token, signOut } = useAuth();
+  const { signOut } = useAuth();
 
-  const handleDeleteNote = useCallback(
-    async (id: string) => {
-      await api.delete(`notes/${id}`, {
-        headers: {
-          Authorization: `Beader ${token}`,
-        },
-      });
+  const handleDeleteNote = useCallback(async (id: string) => {
+    await api.delete(`notes/${id}`);
 
-      const response = await api.get('notes', {
-        headers: {
-          Authorization: `Beader ${token}`,
-        },
-      });
+    const response = await api.get('notes');
 
-      setNotes(response.data);
-    },
-    [token],
-  );
+    setNotes(response.data);
+  }, []);
 
   useEffect(() => {
     api
-      .get('notes', {
-        headers: {
-          Authorization: `Beader ${token}`,
-        },
-      })
+      .get('notes')
       .then((response) => setNotes(response.data))
       .catch(() => {
         signOut();
       });
-  }, [token, signOut]);
+  }, [signOut]);
 
   return (
     <>

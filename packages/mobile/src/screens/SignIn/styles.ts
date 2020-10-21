@@ -19,7 +19,6 @@ export const HeaderTitle = styled.Text`
 export const HeaderContent = styled.Text`
   color: #fff;
   font-size: 18px;
-  font-family: 'Apple SD Gothic Neo';
   text-align: left;
   margin-bottom: 20px;
 `;
@@ -29,7 +28,6 @@ export const InputName = styled.Text`
   width: 100%;
   max-width: 350px;
   margin-bottom: 5px;
-  font-family: 'Apple SD Gothic Neo';
   font-size: 15px;
   text-align: left;
 `;

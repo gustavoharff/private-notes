@@ -5,6 +5,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  TextInput,
 } from 'react-native';
 import { FormHandles } from '@unform/core';
 
@@ -28,6 +29,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const passwordInputRef = useRef<TextInput>(null);
 
   const handleSubmit = useCallback((data: SignInFormData) => {
     console.log(data);
@@ -57,12 +59,27 @@ const SignIn: React.FC = () => {
             <View style={{ flexDirection: 'row' }}>
               <InputName>Email address</InputName>
             </View>
+            <Input
+              autoCorrect={false}
+              autoCapitalize="none"
+              keyboardType="email-address"
+              name="email"
+              placeholder="you@example.com"
+              returnKeyType="next"
+              onSubmitEditing={() => passwordInputRef.current?.focus()}
+            />
 
-            <Input name="email" placeholder="you@example.com" />
             <View style={{ flexDirection: 'row' }}>
               <InputName>Password</InputName>
             </View>
-            <Input name="password" placeholder="Enter you password" />
+            <Input
+              ref={passwordInputRef}
+              secureTextEntry
+              name="password"
+              placeholder="Enter you password"
+              returnKeyType="send"
+              onSubmitEditing={() => formRef.current?.submitForm()}
+            />
 
             <Button onPress={() => formRef.current?.submitForm()}>
               Log in

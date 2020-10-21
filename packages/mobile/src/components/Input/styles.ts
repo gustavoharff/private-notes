@@ -16,7 +16,6 @@ export const Container = styled.View`
 export const TextInput = styled.TextInput`
   flex: 1;
   font-size: 14px;
-  font-family: 'Apple SD Gothic Neo';
   border: 0;
   color: #fff;
 `;

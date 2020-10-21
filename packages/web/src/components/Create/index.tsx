@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAuth } from '../../hooks/auth';
 
 import api from '../../services/api';
 
@@ -25,8 +24,6 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
   const [descriptionFocused, setDescriptionFocused] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
-  const { token } = useAuth();
 
   const handleTitleFocused = useCallback(() => {
     setTitleFocused(true);

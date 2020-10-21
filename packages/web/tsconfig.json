@@ -11,8 +11,11 @@
     "allowJs": true,
     "jsx": "react",
     "sourceMap": true,
-    "outDir": "./build",
-    "strict": true ,
+    "outDir": "./dist",
+    "strict": true,
     "esModuleInterop": true,
-  }
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "electron/**/*"],
+  "exclude": ["node_modules"]
 }

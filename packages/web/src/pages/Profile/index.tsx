@@ -162,7 +162,7 @@ const Profile: React.FC = () => {
             <span>Name</span>
             <Input name="name" placeholder="Your name" />
 
-            <span>Email adress</span>
+            <span>Email address</span>
             <Input
               containerStyle={{ marginBottom: 24 }}
               name="email"

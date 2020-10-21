@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 interface ContainerProps {
   isFocused: boolean;
   isFilled: boolean;
+  isErrored: boolean;
 }
 
 export const Container = styled.View<ContainerProps>`
@@ -20,6 +21,12 @@ export const Container = styled.View<ContainerProps>`
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 
   ${(props) =>
+    props.isErrored &&
+    css`
+      border-color: #c53030;
+    `}
+
+  ${(props) =>
     (props.isFocused || props.isFilled) &&
     css`
       border-color: #f9c74f;
@@ -31,6 +38,6 @@ export const TextInput = styled.TextInput`
   font-size: 14px;
   border: 0;
   color: #fff;
-  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'sans-serif'};
   font-style: normal;
 `;

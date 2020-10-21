@@ -29,7 +29,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 ) => {
   const inputElementRef = useRef<any>(null);
 
-  const { registerField, defaultValue = '', fieldName } = useField(name);
+  const { registerField, defaultValue = '', fieldName, error } = useField(name);
   const inputValueRef = useRef<InputValueRef>({ value: defaultValue });
 
   const [isFocused, setIsFocused] = useState(false);
@@ -68,7 +68,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   }, [fieldName, registerField]);
 
   return (
-    <Container isFocused={isFocused} isFilled={isFilled}>
+    <Container isFocused={isFocused} isFilled={isFilled} isErrored={!!error}>
       <TextInput
         ref={inputElementRef}
         keyboardAppearance="dark"

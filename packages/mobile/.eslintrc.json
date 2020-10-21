@@ -28,6 +28,7 @@
     "prettier"
   ],
   "rules": {
+    "camelcase": "off",
     "prettier/prettier": "error",
     "no-use-before-define": "off",
     "react/jsx-one-expression-per-line": "off",

@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { shade } from 'polished';
 import { RectButton } from 'react-native-gesture-handler';
+import { Platform } from 'react-native';
 
 export const Container = styled(RectButton)`
   width: 100%;
@@ -18,6 +19,6 @@ export const Container = styled(RectButton)`
 
 export const ButtonText = styled.Text`
   color: #312e38;
-  font-family: 'Apple SD Gothic Neo';
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'sans-serif'};
   font-weight: bold;
 `;

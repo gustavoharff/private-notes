@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Form } from '@unform/mobile';
 
 export const Container = styled.View`
   flex: 1;
@@ -28,7 +29,12 @@ export const InputName = styled.Text`
   width: 100%;
   max-width: 350px;
   margin-bottom: 5px;
-  /* font-family: 'Apple SD Gothic Neo';
+  font-family: 'Apple SD Gothic Neo';
   font-size: 15px;
-  text-align: left; */
+  text-align: left;
+`;
+
+export const Unform = styled(Form)`
+  width: 100%;
+  align-items: center;
 `;

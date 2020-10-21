@@ -47,24 +47,16 @@ const Create: React.FC<CreateProps> = ({ notes, setNotes }) => {
   }, []);
 
   const handleAddNote = useCallback(async () => {
-    const response = await api.post(
-      'notes',
-      {
-        title: title !== '' ? title : 'Title not defined',
-        content: description !== '' ? description : 'Description not defined',
-      },
-      {
-        headers: {
-          Authorization: `Beader ${token}`,
-        },
-      },
-    );
+    const response = await api.post('notes', {
+      title: title !== '' ? title : 'Title not defined',
+      content: description !== '' ? description : 'Description not defined',
+    });
 
     setTitle('');
     setDescription('');
     setTitleFocused(false);
     setNotes([...notes, response.data]);
-  }, [setNotes, title, token, description, notes]);
+  }, [setNotes, title, description, notes]);
 
   const handleTitleChange = useCallback((e) => {
     setTitle(e.target.value);

@@ -6,9 +6,7 @@ import logo from '../../assets/logo.png';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import {
-  Container, HeaderTitle, HeaderContent, InputName,
-} from './styles';
+import { Container, HeaderTitle, HeaderContent, InputName } from './styles';
 
 const SignIn: React.FC = () => (
   <Container>

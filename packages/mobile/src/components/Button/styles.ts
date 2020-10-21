@@ -17,6 +17,7 @@ export const Container = styled(RectButton)`
 `;
 
 export const ButtonText = styled.Text`
-  font-weight: bold;
   color: #312e38;
+  font-family: 'Apple SD Gothic Neo';
+  font-weight: bold;
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Form } from '@unform/mobile';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -9,11 +10,11 @@ export const Container = styled.View`
 
 export const HeaderTitle = styled.Text`
   margin-top: 20px;
-  font-family: 'Apple SD Gothic Neo';
   color: #fff;
   font-weight: bold;
   font-size: 18px;
   text-align: left;
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
 `;
 
 export const HeaderContent = styled.Text`
@@ -21,6 +22,7 @@ export const HeaderContent = styled.Text`
   font-size: 18px;
   text-align: left;
   margin-bottom: 20px;
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
 `;
 
 export const InputName = styled.Text`
@@ -30,6 +32,7 @@ export const InputName = styled.Text`
   margin-bottom: 5px;
   font-size: 15px;
   text-align: left;
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
 `;
 
 export const Unform = styled(Form)`

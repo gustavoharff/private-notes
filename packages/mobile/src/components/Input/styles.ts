@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Platform } from 'react-native';
 
 export const Container = styled.View`
   width: 100%;
@@ -17,6 +18,6 @@ export const TextInput = styled.TextInput`
   font-size: 14px;
   border: 0;
   color: #fff;
-  font-family: sans-serif;
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
   font-style: normal;
 `;

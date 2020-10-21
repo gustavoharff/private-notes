@@ -41,11 +41,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       name: fieldName,
       ref: inputValueRef.current,
       path: 'value',
-      setValue(ref: any, value: string) {
+      setValue(_: any, value: string) {
         inputValueRef.current.value = value;
         inputElementRef.current.setNativeProps({ text: value });
       },
-      clearValue(ref: any) {
+      clearValue(_: any) {
         inputValueRef.current.value = '';
         inputElementRef.current.clear();
       },

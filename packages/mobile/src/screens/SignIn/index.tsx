@@ -74,10 +74,10 @@ const SignIn: React.FC = () => {
             </View>
             <Input
               ref={passwordInputRef}
-              secureTextEntry
               name="password"
               placeholder="Enter you password"
               returnKeyType="send"
+              secureTextEntry
               onSubmitEditing={() => formRef.current?.submitForm()}
             />
 

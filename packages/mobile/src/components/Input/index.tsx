@@ -27,7 +27,7 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
 ) => {
   const inputElementRef = useRef<any>(null);
 
-  const { registerField, defaultValue = '', fieldName, error } = useField(name);
+  const { registerField, defaultValue = '', fieldName } = useField(name);
   const inputValueRef = useRef<InputValueRef>({ value: defaultValue });
 
   useImperativeHandle(ref, () => ({
@@ -41,11 +41,11 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
       name: fieldName,
       ref: inputValueRef.current,
       path: 'value',
-      setValue(_: any, value: string) {
+      setValue(_, value: string) {
         inputValueRef.current.value = value;
         inputElementRef.current.setNativeProps({ text: value });
       },
-      clearValue(_: any) {
+      clearValue() {
         inputValueRef.current.value = '';
         inputElementRef.current.clear();
       },

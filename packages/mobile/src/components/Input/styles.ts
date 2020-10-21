@@ -9,7 +9,6 @@ export const Container = styled.View`
   margin-bottom: 8px;
   max-width: 350px;
 
-  line-height: 26px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
 `;
 
@@ -18,4 +17,6 @@ export const TextInput = styled.TextInput`
   font-size: 14px;
   border: 0;
   color: #fff;
+  font-family: sans-serif;
+  font-style: normal;
 `;

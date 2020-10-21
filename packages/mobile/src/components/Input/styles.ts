@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   width: 100%;
   height: 40px;
-  padding: 10px 10px;
+  padding: 0 10px;
   border: 1px solid #5f6368;
   border-radius: 9px;
   margin-bottom: 8px;

@@ -28,6 +28,7 @@ export const InputName = styled.Text`
   width: 100%;
   max-width: 350px;
   margin-bottom: 5px;
-  font-family: 'Apple SD Gothic Neo';
+  /* font-family: 'Apple SD Gothic Neo';
   font-size: 15px;
+  text-align: left; */
 `;

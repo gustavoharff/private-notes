@@ -11,7 +11,7 @@ import {
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import logo from '../../assets/logo.png';
+import logo from '../../assets/icon.png';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -80,7 +80,7 @@ const SignIn: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <Container>
-          <Image source={logo} />
+          <Image source={logo} style={{ width: 100, height: 100 }} />
           <View>
             <HeaderTitle>Welcome to Private Notes</HeaderTitle>
           </View>

@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
 import { Platform } from 'react-native';
+import { Form } from '@unform/mobile';
 
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
+  align-items: center;
 
   padding: 50px 30px ${Platform.OS === 'android' ? 70 : 130}px;
 
@@ -27,12 +29,21 @@ export const Title = styled.Text`
 
 export const UserAvatarButton = styled.TouchableOpacity`
   margin-top: 32px;
+  border-color: #f9c74f;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 93px;
+  padding: 2px;
+  width: 184px;
+  height: 184px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const UserAvatar = styled.Image`
   width: 160px;
   height: 160px;
-  border-radius: 98px;
+  border-radius: 80px;
 
   align-self: center;
 `;
@@ -45,4 +56,9 @@ export const InputName = styled.Text`
   font-size: 15px;
   text-align: left;
   font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
+`;
+
+export const Unform = styled(Form)`
+  width: 100%;
+  align-items: center;
 `;

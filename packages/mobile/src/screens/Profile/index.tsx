@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 import {
   View,
   TextInput,
@@ -28,6 +28,7 @@ import {
   UserAvatarButton,
   UserAvatar,
   InputName,
+  Unform,
 } from './styles';
 import { useAuth } from '../../hooks/auth';
 
@@ -48,6 +49,15 @@ const Profile: React.FC = () => {
   const oldPasswordInputRef = useRef<TextInput>(null);
   const passwordInputRef = useRef<TextInput>(null);
   const confirmPasswordInputRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    api
+      .get('profile')
+      .then((response) => updateUser(response.data))
+      .catch(() => {
+        signOut();
+      });
+  }, [signOut, updateUser]);
 
   const handleUpdateProfile = useCallback(
     async (data: ProfileFormData) => {
@@ -179,7 +189,7 @@ const Profile: React.FC = () => {
             <View>
               <Title>My profile</Title>
             </View>
-            <Form
+            <Unform
               initialData={user}
               ref={formRef}
               onSubmit={handleUpdateProfile}
@@ -256,7 +266,7 @@ const Profile: React.FC = () => {
                 returnKeyType="send"
                 onSubmitEditing={() => formRef.current?.submitForm()}
               />
-            </Form>
+            </Unform>
 
             <Button onPress={() => formRef.current?.submitForm()}>
               Confirm changes

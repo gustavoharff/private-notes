@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import {
   Image,
   View,
@@ -33,6 +33,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const { signIn } = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
@@ -40,6 +41,7 @@ const SignIn: React.FC = () => {
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
       try {
+        setLoading(true);
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
@@ -65,6 +67,8 @@ const SignIn: React.FC = () => {
         }
 
         Alert.alert('Error', 'Authentication failure');
+      } finally {
+        setLoading(false);
       }
     },
     [signIn],
@@ -116,8 +120,11 @@ const SignIn: React.FC = () => {
               onSubmitEditing={() => formRef.current?.submitForm()}
             />
 
-            <Button onPress={() => formRef.current?.submitForm()}>
-              Log in
+            <Button
+              loading={loading}
+              onPress={() => formRef.current?.submitForm()}
+            >
+              Logn in
             </Button>
           </Unform>
         </Container>

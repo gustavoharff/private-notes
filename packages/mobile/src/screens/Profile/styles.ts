@@ -7,7 +7,8 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 
-  padding: 50px 30px ${Platform.OS === 'android' ? 70 : 130}px;
+  padding: 0 30px 40px;
+  padding-top: ${Platform.OS === 'android' ? 0 : 40}px;
 
   position: relative;
 `;

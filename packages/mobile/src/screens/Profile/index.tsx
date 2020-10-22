@@ -23,7 +23,6 @@ import Button from '../../components/Button';
 import {
   Container,
   BackButton,
-  Title,
   UserAvatarButton,
   UserAvatar,
   InputName,
@@ -191,9 +190,6 @@ const Profile: React.FC = () => {
               />
             </UserAvatarButton>
 
-            <View>
-              <Title>My profile</Title>
-            </View>
             <Unform
               initialData={user}
               ref={formRef}

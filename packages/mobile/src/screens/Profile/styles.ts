@@ -20,15 +20,9 @@ export const BackButton = styled.TouchableOpacity`
   padding: 40px;
 `;
 
-export const Title = styled.Text`
-  font-size: 20px;
-  color: #f4ede8;
-  margin: 24px 0;
-  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
-`;
-
 export const UserAvatarButton = styled.TouchableOpacity`
   margin-top: 32px;
+  margin-bottom: 40px;
   border-color: #f9c74f;
   border-width: 5px;
   border-style: solid;

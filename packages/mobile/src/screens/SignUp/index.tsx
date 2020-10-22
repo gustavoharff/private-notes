@@ -23,32 +23,32 @@ import {
   HeaderContent,
   Unform,
   InputName,
-  ForgotPassword,
-  ForgotPasswordText,
-  CreateAccount,
-  CreateAccountText,
+  GoBack,
+  GoBackText,
 } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { useAuth } from '../../hooks/auth';
+import api from '../../services/api';
 
-interface SignInFormData {
+interface SignUpFormData {
+  name: string;
   email: string;
   password: string;
 }
 
-const SignIn: React.FC = () => {
-  const { signIn } = useAuth();
+const SignUp: React.FC = () => {
   const navigation = useNavigation();
 
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
+  const emailInputRef = useRef<TextInput>(null);
 
   const handleSubmit = useCallback(
-    async (data: SignInFormData) => {
+    async (data: SignUpFormData) => {
       try {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
+          name: Yup.string().required('Name required'),
           email: Yup.string()
             .required('E-mail required')
             .email('Enter a valid email address'),
@@ -57,10 +57,15 @@ const SignIn: React.FC = () => {
 
         await schema.validate(data, { abortEarly: false });
 
-        await signIn({
+        await api.post('/users', {
+          name: data.name,
           email: data.email,
           password: data.password,
         });
+
+        Alert.alert('Success', 'Account created!');
+
+        navigation.navigate('SignIn');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -70,10 +75,10 @@ const SignIn: React.FC = () => {
           return;
         }
 
-        Alert.alert('Error', 'Authentication failure');
+        Alert.alert('Error', 'Account creation error!');
       }
     },
-    [signIn],
+    [navigation],
   );
 
   return (
@@ -98,9 +103,20 @@ const SignIn: React.FC = () => {
 
           <Unform ref={formRef} onSubmit={handleSubmit}>
             <View style={{ flexDirection: 'row' }}>
+              <InputName>Full name</InputName>
+            </View>
+            <Input
+              autoCorrect={false}
+              name="name"
+              returnKeyType="next"
+              onSubmitEditing={() => emailInputRef.current?.focus()}
+            />
+
+            <View style={{ flexDirection: 'row' }}>
               <InputName>Email address</InputName>
             </View>
             <Input
+              ref={emailInputRef}
               autoCorrect={false}
               autoCapitalize="none"
               keyboardType="email-address"
@@ -110,7 +126,7 @@ const SignIn: React.FC = () => {
             />
 
             <View style={{ flexDirection: 'row' }}>
-              <InputName>Password</InputName>
+              <InputName>Create password</InputName>
             </View>
             <Input
               ref={passwordInputRef}
@@ -122,27 +138,18 @@ const SignIn: React.FC = () => {
             />
 
             <Button onPress={() => formRef.current?.submitForm()}>
-              Logn in
+              Sign up
             </Button>
           </Unform>
 
-          <ForgotPassword>
-            <ForgotPasswordText>Forgot your password?</ForgotPasswordText>
-            <ForgotPasswordText style={{ color: '#f9c74f' }}>
-              Recover password
-            </ForgotPasswordText>
-          </ForgotPassword>
-
-          <CreateAccount onPress={() => navigation.navigate('SignUp')}>
-            <CreateAccountText>Dont have an account?</CreateAccountText>
-            <CreateAccountText style={{ color: '#f9c74f' }}>
-              Sign up
-            </CreateAccountText>
-          </CreateAccount>
+          <GoBack onPress={() => navigation.navigate('SignIn')}>
+            <GoBackText>Already have an account?</GoBackText>
+            <GoBackText style={{ color: '#f9c74f' }}>Log in</GoBackText>
+          </GoBack>
         </Container>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 };
 
-export default SignIn;
+export default SignUp;

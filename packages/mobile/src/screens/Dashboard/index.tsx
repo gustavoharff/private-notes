@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Image, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, KeyboardAvoidingView, Platform, Text } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
@@ -15,6 +15,7 @@ import {
   NotesList,
 } from './styles';
 import Note from '../../components/Note';
+import Create from '../../components/Create';
 
 export interface Note {
   id: string;
@@ -54,18 +55,30 @@ const Dashboard: React.FC = () => {
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
       </Header>
-      <NotesList
-        data={notes}
-        keyExtractor={(note) => note.id}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ justifyContent: 'center' }}
-        renderItem={({ item: note }) => (
-          <Note deleteNote={handleDeleteNote} note={note} />
-        )}
-      />
-      <TouchableOpacity onPress={signOut}>
-        <Text style={{ color: '#fff' }}>Sair</Text>
-      </TouchableOpacity>
+
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
+        <ScrollView
+          contentContainerStyle={{ flex: 1 }}
+          keyboardShouldPersistTaps="handled"
+        >
+          <Create setNotes={setNotes} notes={notes} />
+          <NotesList
+            data={notes}
+            keyExtractor={(note) => note.id}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ justifyContent: 'center' }}
+            renderItem={({ item: note }) => (
+              <Note deleteNote={handleDeleteNote} note={note} />
+            )}
+          />
+          <TouchableOpacity onPress={signOut}>
+            <Text style={{ color: '#fff' }}>Sair</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </Container>
   );
 };

@@ -12,11 +12,12 @@ export const Container = styled.View`
   padding: 20px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
   flex-direction: row;
-  flex: 1;
 `;
 
 export const Content = styled.View`
   justify-content: center;
+  width: 100%;
+  max-width: 210px;
 `;
 
 export const Title = styled.Text`

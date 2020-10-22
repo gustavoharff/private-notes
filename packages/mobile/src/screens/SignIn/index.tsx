@@ -117,7 +117,6 @@ const SignIn: React.FC = () => {
               secureTextEntry
               name="password"
               returnKeyType="send"
-              underlineColorAndroid="transparent"
               onSubmitEditing={() => formRef.current?.submitForm()}
             />
 
@@ -126,7 +125,7 @@ const SignIn: React.FC = () => {
             </Button>
           </Unform>
 
-          <ForgotPassword>
+          <ForgotPassword onPress={() => navigation.navigate('ForgotPassword')}>
             <ForgotPasswordText>Forgot your password?</ForgotPasswordText>
             <ForgotPasswordText style={{ color: '#f9c74f' }}>
               Recover password

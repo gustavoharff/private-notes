@@ -83,11 +83,19 @@ export const Container = styled(motion.div)`
 export const AvatarInput = styled.div`
   display: flex;
   position: relative;
-  width: 186px;
+  width: 182px;
+  height: 182px;
+  align-items: center;
+  justify-content: center;
+
+  border-color: #f9c74f;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 50%;
 
   img {
-    width: 186px;
-    height: 186px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
   }
 

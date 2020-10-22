@@ -14,22 +14,22 @@ const appearFromLeft = keyframes`
 
 export const Container = styled.div`
   display: flex;
-  width: 100%;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
   height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 
   animation: ${appearFromLeft} 1s;
 
   form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
     max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     text-align: left;
 
@@ -44,8 +44,8 @@ export const Container = styled.div`
       margin-bottom: 8px;
 
       > a {
-        color: #f9c74f;
         margin-left: 5px;
+        color: #f9c74f;
         transition: 0.2s;
 
         &:hover {

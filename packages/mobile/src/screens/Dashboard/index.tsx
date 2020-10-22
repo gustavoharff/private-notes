@@ -57,7 +57,13 @@ const Dashboard: React.FC = () => {
       <Header>
         <Image source={logo} />
         <ProfileButton onPress={navigateToProfile}>
-          <UserAvatar source={{ uri: user.avatar_url }} />
+          <UserAvatar
+            source={{
+              uri: user.avatar_url
+                ? user.avatar_url
+                : 'https://api.adorable.io/avatars/56/profile.png',
+            }}
+          />
         </ProfileButton>
       </Header>
 

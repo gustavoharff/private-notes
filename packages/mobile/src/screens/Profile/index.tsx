@@ -182,7 +182,13 @@ const Profile: React.FC = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
           <Container>
             <UserAvatarButton onPress={handleUpdateAvatar}>
-              <UserAvatar source={{ uri: user.avatar_url }} />
+              <UserAvatar
+                source={{
+                  uri: user.avatar_url
+                    ? user.avatar_url
+                    : 'https://api.adorable.io/avatars/56/profile.png',
+                }}
+              />
             </UserAvatarButton>
 
             <View>

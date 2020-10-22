@@ -11,7 +11,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 2px rgba(0, 0, 0, 1);
   flex-direction: row;
 `;
 

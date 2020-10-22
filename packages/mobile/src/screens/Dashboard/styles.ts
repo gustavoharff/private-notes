@@ -13,6 +13,7 @@ export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 1);
 `;
 
 export const ProfileButton = styled.TouchableOpacity`

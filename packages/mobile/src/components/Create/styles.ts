@@ -10,7 +10,7 @@ export const Container = styled.View`
   justify-content: center;
   padding: 0 20px;
   border: 1px solid #5f6368;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 2px 2px rgba(0, 0, 0, 1);
   border-radius: 9px;
   flex-direction: row;
 `;

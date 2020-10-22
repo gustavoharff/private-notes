@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -21,7 +22,8 @@ export const Content = styled.View`
 
 export const Input = styled.TextInput`
   border: 0;
-  padding: 20px 0 20px 10px;
+  padding: 20px 0 20px 0;
   color: #fff;
   font-size: 14px;
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
 `;

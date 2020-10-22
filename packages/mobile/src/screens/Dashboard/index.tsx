@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Image, KeyboardAvoidingView, Platform, Text } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { Image } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 
@@ -25,6 +25,7 @@ export interface Note {
 
 const Dashboard: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([]);
+  const { navigate } = useNavigation();
 
   const { signOut, updateUser, user } = useAuth();
 
@@ -35,6 +36,10 @@ const Dashboard: React.FC = () => {
 
     setNotes(response.data);
   }, []);
+
+  const navigateToProfile = useCallback(() => {
+    navigate('Profile');
+  }, [navigate]);
 
   useEffect(() => {
     api
@@ -51,34 +56,22 @@ const Dashboard: React.FC = () => {
     <Container>
       <Header>
         <Image source={logo} />
-        <ProfileButton>
+        <ProfileButton onPress={navigateToProfile}>
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
       </Header>
 
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      >
-        <ScrollView
-          contentContainerStyle={{ flex: 1 }}
-          keyboardShouldPersistTaps="handled"
-        >
-          <Create setNotes={setNotes} notes={notes} />
-          <NotesList
-            data={notes}
-            keyExtractor={(note) => note.id}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ justifyContent: 'center' }}
-            renderItem={({ item: note }) => (
-              <Note deleteNote={handleDeleteNote} note={note} />
-            )}
-          />
-          <TouchableOpacity onPress={signOut}>
-            <Text style={{ color: '#fff' }}>Sair</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      <Create setNotes={setNotes} notes={notes} />
+
+      <NotesList
+        data={notes}
+        keyExtractor={(note) => note.id}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ justifyContent: 'center' }}
+        renderItem={({ item: note }) => (
+          <Note deleteNote={handleDeleteNote} note={note} />
+        )}
+      />
     </Container>
   );
 };

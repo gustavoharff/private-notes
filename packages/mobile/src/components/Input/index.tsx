@@ -6,13 +6,14 @@ import React, {
   useState,
   useCallback,
 } from 'react';
-import { TextInputProps } from 'react-native';
+import { Text, TextInputProps } from 'react-native';
 import { useField } from '@unform/core';
 
 import { Container, TextInput } from './styles';
 
 interface InputProps extends TextInputProps {
   name: string;
+  containerStyle?: object;
 }
 
 interface InputValueRef {
@@ -24,7 +25,7 @@ interface InputRef {
 }
 
 const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
-  { name, ...rest },
+  { name, containerStyle, ...rest },
   ref,
 ) => {
   const inputElementRef = useRef<any>(null);
@@ -68,11 +69,15 @@ const Input: React.ForwardRefRenderFunction<InputRef, InputProps> = (
   }, [fieldName, registerField]);
 
   return (
-    <Container isFocused={isFocused} isFilled={isFilled} isErrored={!!error}>
+    <Container
+      style={containerStyle}
+      isFocused={isFocused}
+      isFilled={isFilled}
+      isErrored={!!error}
+    >
       <TextInput
         ref={inputElementRef}
         keyboardAppearance="dark"
-        placeholderTextColor="#666360"
         defaultValue={defaultValue}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}

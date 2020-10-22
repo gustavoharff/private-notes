@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components/native';
 import { Platform } from 'react-native';
+import styled, { css } from 'styled-components/native';
 
 interface ContainerProps {
   isFocused: boolean;
@@ -35,9 +35,8 @@ export const Container = styled.View<ContainerProps>`
 
 export const TextInput = styled.TextInput`
   flex: 1;
-  font-size: 14px;
+  font-size: 15px;
   border: 0;
   color: #fff;
-  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'sans-serif'};
-  font-style: normal;
+  font-family: ${Platform.OS === 'ios' ? 'Apple SD Gothic Neo' : 'Arial'};
 `;

@@ -31,7 +31,6 @@ export const UserAvatar = styled.Image`
 
 export const NotesList = styled(FlatList as new () => FlatList<Note>)`
   flex: 1;
-  padding: 32px 24px 16px;
   margin: 0 auto;
   flex-grow: 1;
   flex-wrap: wrap;

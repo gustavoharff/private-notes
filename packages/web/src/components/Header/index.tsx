@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
-import Logo from '../../assets/logo-with-name.svg';
+import logo from '../../assets/logo.png';
 
-import icon from '../../assets/icon-64.png';
+import icon from '../../assets/icon.png';
 
 import { Container, UserContainer, Profile } from './styles';
 
@@ -16,7 +16,7 @@ const Header: React.FC = () => {
     return (
       <UserContainer>
         <Link to="/dashboard">
-          <Logo />
+          <img src={logo} alt="Private Notes" />
         </Link>
         {user && (
           <div>
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <img src={icon} alt="" />
+      <img src={icon} alt="Private Notes" />
       <div>
         <strong>Welcome to Private Notes</strong>
         <span>Sign in to save your content to the cloud.</span>

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  width: 100%;
+  /* width: 100%; */
+  max-width: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,12 +14,17 @@ export const Container = styled.div`
     margin-left: 24px;
   }
 
+  img {
+    width: 64px;
+    height: 64px;
+  }
+
   @media (max-width: 500px) {
     flex-direction: column;
 
     img {
       width: 64px;
-      height: 65px;
+      height: 64px;
       margin-bottom: 20px;
     }
 

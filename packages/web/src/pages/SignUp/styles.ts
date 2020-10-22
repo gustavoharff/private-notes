@@ -15,6 +15,7 @@ const appearFromRight = keyframes`
 export const Container = styled.div`
   display: flex;
   width: 100%;
+  max-width: 900px;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +31,7 @@ export const Container = styled.div`
     justify-content: center;
     width: 100%;
     max-width: 320px;
-    padding: 20px;
+    padding: 10px 20px;
     text-align: left;
 
     h1 {

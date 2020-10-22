@@ -37,7 +37,7 @@ const Dashboard: React.FC = () => {
       .get('profile')
       .then((response) => updateUser(response.data))
       .then(() => {
-        signOut;
+        signOut();
       });
 
     api.get('notes').then((response) => setNotes(response.data));

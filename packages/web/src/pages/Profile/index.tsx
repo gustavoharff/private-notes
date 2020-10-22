@@ -33,7 +33,7 @@ const Profile: React.FC = () => {
       .get('profile')
       .then((response) => updateUser(response.data))
       .then(() => {
-        signOut;
+        signOut();
       });
   }, [signOut, updateUser]);
 

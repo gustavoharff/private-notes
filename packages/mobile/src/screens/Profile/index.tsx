@@ -139,10 +139,10 @@ const Profile: React.FC = () => {
       {
         maxWidth: 300,
         maxHeight: 300,
-        title: 'Selecione um avatar',
-        cancelButtonTitle: 'Cancelar',
-        takePhotoButtonTitle: 'Usar câmera',
-        chooseFromLibraryButtonTitle: 'Escolher da galeria',
+        title: 'Select an avatar',
+        cancelButtonTitle: 'Cancel',
+        takePhotoButtonTitle: 'Use camera',
+        chooseFromLibraryButtonTitle: 'Choose from gallery',
       },
       (response) => {
         if (response.didCancel) {

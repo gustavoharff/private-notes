@@ -67,7 +67,7 @@ const SignUp: React.FC = () => {
         <span>Full name</span>
         <Input name="name" placeholder="Enter you name" />
 
-        <span>Email adress</span>
+        <span>Email address</span>
         <Input name="email" placeholder="you@example.com" />
 
         <span>Create password</span>

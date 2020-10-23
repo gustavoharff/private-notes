@@ -60,7 +60,7 @@ const SignIn: React.FC = () => {
     <Container>
       <Header />
       <Form ref={formRef} onSubmit={handleSubmit}>
-        <span>Email adress</span>
+        <span>Email address</span>
         <Input name="email" placeholder="you@example.com" />
 
         <span>Password</span>

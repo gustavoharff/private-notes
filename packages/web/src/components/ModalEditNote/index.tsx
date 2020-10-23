@@ -47,10 +47,10 @@ const ModalEditFood: React.FC<ModalProps> = ({ isOpen, setIsOpen, note }) => {
       <Form ref={formRef} onSubmit={handleAddNote} initialData={note}>
         <h1>Note editing</h1>
 
-        <Input name="title" placeholder="Ex: Moda Italiana" />
-        <Input name="content" placeholder="Ex: 19.90" />
+        <Input name="title" placeholder="Type the title here" />
+        <Input name="content" placeholder="Type the description here" />
 
-        <button type="submit" data-testid="edit-food-button">
+        <button type="submit">
           <FiCheck size={28} />
         </button>
       </Form>

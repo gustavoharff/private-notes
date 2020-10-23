@@ -11,6 +11,7 @@ import Routes from './routes';
 import { AuthProvider } from './hooks/auth';
 
 import { GlobalStyle } from './styles/global';
+import { NotesProvider } from './hooks/notes';
 
 Modal.setAppElement('#root');
 
@@ -19,7 +20,9 @@ const App: React.FC = () => (
     <TitleBar />
     <Router>
       <AuthProvider>
-        <Routes />
+        <NotesProvider>
+          <Routes />
+        </NotesProvider>
       </AuthProvider>
       <ToastContainer autoClose={3000} />
       <GlobalStyle />

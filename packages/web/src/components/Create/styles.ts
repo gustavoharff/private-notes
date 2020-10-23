@@ -22,7 +22,9 @@ export const AddNote = styled(motion.div)`
     border-radius: 9px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
     justify-content: space-between;
-
+    ::-webkit-scrollbar {
+      display: none;
+    }
     div {
       display: flex;
       flex-direction: column;

@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { shade } from 'polished';
+import styled, { keyframes } from 'styled-components';
 
 const appearFromLeft = keyframes`
   from {

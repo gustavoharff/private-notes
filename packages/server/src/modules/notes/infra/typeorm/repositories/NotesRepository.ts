@@ -5,6 +5,7 @@ import ICreateNoteDTO from '@modules/notes/dtos/ICreateNoteDTO';
 
 import AppError from '@shared/errors/AppError';
 import IDeleteNoteDTO from '@modules/notes/dtos/IDeleteNoteDTO';
+import IEditNoteDTO from '@modules/notes/dtos/IEditNoteDTO';
 import Note from '../entities/Note';
 
 class NotesRepository implements INotesRepository {
@@ -28,6 +29,39 @@ class NotesRepository implements INotesRepository {
     await this.ormRepository.save(note);
 
     return note;
+  }
+
+  public async update({
+    note_id,
+    user_id,
+    title,
+    content,
+  }: IEditNoteDTO): Promise<Note | undefined> {
+    const note = await this.ormRepository.findOne({
+      where: { id: note_id },
+    });
+
+    if (!note) {
+      throw new AppError('Note not found');
+    }
+
+    await this.ormRepository.update(
+      {
+        id: note_id,
+      },
+      {
+        id: note_id,
+        user_id,
+        title,
+        content,
+      },
+    );
+
+    const updatedNote = await this.ormRepository.findOne({
+      where: { id: note_id },
+    });
+
+    return updatedNote;
   }
 
   public async delete({ note_id, user_id }: IDeleteNoteDTO): Promise<void> {

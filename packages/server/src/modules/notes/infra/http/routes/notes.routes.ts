@@ -23,6 +23,20 @@ notesRouter.post(
   notesController.create,
 );
 
+notesRouter.put(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+    [Segments.BODY]: {
+      title: Joi.string().required(),
+      content: Joi.string().required(),
+    },
+  }),
+  notesController.update,
+);
+
 notesRouter.delete(
   '/:id',
   celebrate({

@@ -14,6 +14,7 @@ const appearFromLeft = keyframes`
 `;
 
 export const Container = styled(motion.li)`
+  background: ${shade(0.1, '#191622')};
   display: flex;
   border-radius: 9px;
   border: 1px solid #5f6368;
@@ -29,7 +30,7 @@ export const Container = styled(motion.li)`
 
   button {
     background: none;
-    color: #fff;
+    color: #f8f8f2;
     border: 0;
 
     & + button {

@@ -37,7 +37,7 @@ export const Container = styled.div<ContainerProps>`
     ${(props) =>
     props.isErrored &&
     css`
-      border-color: #c53030;
+      border-color: #ff5555;
     `}
 
   input {
@@ -45,7 +45,7 @@ export const Container = styled.div<ContainerProps>`
     flex: 1;
     background: none;
     border: 0;
-    color: #fff;
+    color: #f8f8f2;
   }
 
   svg {
@@ -63,11 +63,11 @@ export const Error = styled(Tooltip)`
   }
 
   span {
-    background: #c53030;
+    background: #ff5555;
     color: #fff;
 
     &::before {
-      border-color: #c53030 transparent;
+      border-color: #ff5555 transparent;
     }
   }
 `;

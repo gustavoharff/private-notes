@@ -13,6 +13,7 @@ export const AddNote = styled(motion.div)`
   width: 100%;
 
   form {
+    background: ${shade(0.1, '#191622')};
     display: flex;
     align-items: center;
     width: 100%;
@@ -25,6 +26,7 @@ export const AddNote = styled(motion.div)`
     ::-webkit-scrollbar {
       display: none;
     }
+
     div {
       display: flex;
       flex-direction: column;
@@ -38,10 +40,10 @@ export const AddNote = styled(motion.div)`
       justify-content: center;
       background: none;
       border: 0;
-      color: #5f6368;
+      color: #f8f8f2;
 
       &:hover {
-        color: ${shade(0.2, '#5f6368')};
+        color: ${shade(0.2, '#f8f8f2')};
       }
     }
   }

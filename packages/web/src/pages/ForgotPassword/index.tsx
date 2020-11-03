@@ -61,7 +61,7 @@ const ForgotPassword: React.FC = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <h1>Password recovery</h1>
 
-        <span>Email adress</span>
+        <span>E-mail address</span>
         <Input name="email" placeholder="Your e-mail" />
 
         <Button type="submit">Recover</Button>

@@ -6,7 +6,7 @@ export const Container = styled(motion.input)`
   background: none;
   border: 0;
   padding: 20px 0 20px 20px;
-  color: #fff;
+  color: #f8f8f2;
   flex: 1;
   font-size: 14px;
 

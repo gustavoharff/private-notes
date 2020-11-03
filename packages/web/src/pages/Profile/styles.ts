@@ -21,7 +21,6 @@ export const Container = styled(motion.div)`
     width: 100%;
     display: flex;
     align-items: center;
-    /* background: #28262e; */
     top: 0;
     left: 0;
 
@@ -122,7 +121,7 @@ export const AvatarInput = styled.div`
     svg {
       width: 20px;
       height: 20px;
-      color: #191622;
+      color: #282a36;
     }
 
     &:hover {

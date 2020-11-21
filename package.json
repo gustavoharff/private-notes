@@ -7,6 +7,9 @@
     "packages": [
       "packages/web",
       "packages/server"
+    ],
+    "nohoist": [
+      "**/electron"
     ]
   },
   "author": "Gustavo Harff <gustavo.harff@gmail.com>",

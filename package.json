@@ -9,7 +9,8 @@
       "packages/server"
     ],
     "nohoist": [
-      "**/electron"
+      "**/electron",
+      "**/typeorm"
     ]
   },
   "author": "Gustavo Harff <gustavo.harff@gmail.com>",

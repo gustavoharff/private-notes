@@ -1,0 +1,103 @@
+{
+  "name": "private-notes",
+  "version": "1.0.0",
+  "description": "Some notes",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Gustavo Harff <gustavo.harff@gmail.com>",
+  "main": "./dist/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "npm-run-all -p dev:react electron:serve",
+    "dev:electron": "cross-env NODE_ENV=development webpack --config webpack/electron.webpack.js && npm run start:electron",
+    "dev:react": "cross-env NODE_ENV=development webpack-dev-server --config webpack/react.webpack.js",
+    "production:react": "cross-env NODE_ENV=production webpack-dev-server --config webpack/react.webpack.js",
+    "electron:serve": "wait-on http-get://localhost:4000/ && npm run dev:electron",
+    "start:electron": "electron .",
+    "build": "npm-run-all build:electron build:react",
+    "build:run": "npm-run-all build start:electron",
+    "build:electron": "webpack --config webpack/electron.webpack.js --mode production",
+    "build:react": "webpack --config webpack/react.webpack.js --mode production",
+    "package": "npm-run-all build package:dist",
+    "package:dist": "electron-builder --mac --win --linux --publish never"
+  },
+  "dependencies": {
+    "@unform/core": "^2.1.3",
+    "@unform/web": "^2.1.3",
+    "axios": "^0.19.2",
+    "css-loader": "^4.3.0",
+    "file-loader": "^6.0.0",
+    "framer-motion": "^2.6.13",
+    "polished": "^3.6.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-modal": "^3.11.2",
+    "react-router-dom": "^5.2.0",
+    "react-toastify": "^6.0.8",
+    "regenerator-runtime": "^0.13.7",
+    "style-loader": "^1.2.1",
+    "styled-components": "^5.1.1",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@svgr/webpack": "^5.4.0",
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-modal": "^3.10.6",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/styled-components": "^5.1.0",
+    "@types/yup": "^0.29.6",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "electron": "^8.5.2",
+    "electron-builder": "^22.7.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "html-webpack-plugin": "^4.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "typescript": "^3.9.5",
+    "wait-on": "^5.0.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "build": {
+    "appId": "com.gustavoharff.one",
+    "productName": "Private Notes",
+    "copyright": "Copyright © 2020 Gustavo Harff",
+    "files": [
+      "dist/"
+    ],
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    }
+  }
+}

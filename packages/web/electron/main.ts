@@ -15,7 +15,7 @@ function createWindow(): void {
     icon,
     width: 1100,
     height: 700,
-    backgroundColor: '#282A36',
+    backgroundColor: '#191622',
     webPreferences: {
       nodeIntegration: true,
     },

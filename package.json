@@ -1,0 +1,14 @@
+{
+  "name": "private-notes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/web",
+      "packages/server"
+    ]
+  },
+  "author": "Gustavo Harff <gustavo.harff@gmail.com>",
+  "license": "MIT"
+}

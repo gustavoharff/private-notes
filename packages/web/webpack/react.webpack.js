@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -36,7 +37,7 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
-      }
+      },
     ],
   },
   devServer: {
@@ -54,7 +55,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(rootPath, 'index.html')
+      template: path.resolve(rootPath, 'index.html'),
     }),
   ],
 };

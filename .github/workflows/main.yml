@@ -20,7 +20,7 @@ jobs:
         run: yarn
 
       - name: Go to server folder
-        run: cd ~/app/private-notes/packages/server
+        run: cd ./packages/server
 
       - name: Run build
         run: yarn build

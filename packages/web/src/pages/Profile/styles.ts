@@ -9,7 +9,6 @@ export const Container = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  height: 100%;
   padding: 40px 40px;
 
   position: relative;

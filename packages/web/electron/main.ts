@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { app, nativeImage, BrowserWindow } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
@@ -14,7 +15,7 @@ function createWindow(): void {
   mainWindow = new BrowserWindow({
     icon,
     width: 1100,
-    height: 700,
+    height: 760,
     backgroundColor: '#191622',
     webPreferences: {
       nodeIntegration: true,
@@ -40,6 +41,6 @@ function createWindow(): void {
   });
 }
 
-app.on('ready', createWindow);
+app.on('ready', createWindow).setAsDefaultProtocolClient('privatenotes');
 
 app.allowRendererProcessReuse = true;

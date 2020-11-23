@@ -17,7 +17,7 @@
     "dev:react": "cross-env NODE_ENV=development webpack-dev-server --config webpack/react.webpack.js",
     "electron:serve": "wait-on http-get://localhost:4000/ && npm run dev:electron",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --mac --win --linux --publish never",
+    "package:dist": "electron-builder --mac --publish never",
     "production:react": "cross-env NODE_ENV=production webpack-dev-server --config webpack/react.webpack.js",
     "start:electron": "electron ."
   },

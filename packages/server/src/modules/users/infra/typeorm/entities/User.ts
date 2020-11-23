@@ -6,9 +6,9 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-import uploadConfig from '@config/upload';
-
 import { Exclude, Expose } from 'class-transformer';
+
+import uploadConfig from '../../../../../config/upload';
 
 @Entity('users')
 class User {
@@ -37,7 +37,7 @@ class User {
   @Expose({ name: 'avatar_url' })
   getAvatar_url(): string | null {
     if (!this.avatar) {
-      return null;
+      return `${process.env.APP_API_URL}/files/null.png`;
     }
 
     switch (uploadConfig.driver) {

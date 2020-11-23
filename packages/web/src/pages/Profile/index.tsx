@@ -124,73 +124,71 @@ const Profile: React.FC = () => {
   );
 
   return (
-    <>
-      <AnimateSharedLayout>
-        <Container
-          layout
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <header>
-            <div>
-              <Link to="/dashboard">
-                <FiArrowLeft />
-              </Link>
-              <button type="button" onClick={signOut}>
-                <FiPower />
-              </button>
-            </div>
-          </header>
+    <AnimateSharedLayout>
+      <Container
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <header>
+          <div>
+            <Link to="/dashboard">
+              <FiArrowLeft />
+            </Link>
+            <button type="button" onClick={signOut}>
+              <FiPower />
+            </button>
+          </div>
+        </header>
 
-          <Form ref={formRef} onSubmit={handleSubmit} initialData={user}>
-            <AvatarInput>
-              <img
-                src={
-                  user.avatar_url
-                    ? user.avatar_url
-                    : 'https://api.adorable.io/avatars/186/profile.png'
-                }
-                alt={user.name}
-              />
-              <label htmlFor="avatar">
-                <FiCamera />
-                <input type="file" id="avatar" onChange={handleAvatarChange} />
-              </label>
-            </AvatarInput>
-
-            <span>Name</span>
-            <Input name="name" placeholder="Your name" />
-
-            <span>Email address</span>
-            <Input
-              containerStyle={{ marginBottom: 24 }}
-              name="email"
-              placeholder="Your email"
+        <Form ref={formRef} onSubmit={handleSubmit} initialData={user}>
+          <AvatarInput>
+            <img
+              src={
+                user.avatar_url
+                  ? user.avatar_url
+                  : 'https://api.adorable.io/avatars/186/profile.png'
+              }
+              alt={user.name}
             />
+            <label htmlFor="avatar">
+              <FiCamera />
+              <input type="file" id="avatar" onChange={handleAvatarChange} />
+            </label>
+          </AvatarInput>
 
-            <span>Current password</span>
-            <Input
-              name="old_password"
-              type="password"
-              placeholder="Your password"
-            />
+          <span>Name</span>
+          <Input name="name" placeholder="Your name" />
 
-            <span>New password</span>
-            <Input name="password" type="password" placeholder="Password" />
+          <span>Email address</span>
+          <Input
+            containerStyle={{ marginBottom: 24 }}
+            name="email"
+            placeholder="Your email"
+          />
 
-            <span>Confirm password</span>
-            <Input
-              name="password_confirmation"
-              type="password"
-              placeholder="Confirm password"
-            />
+          <span>Current password</span>
+          <Input
+            name="old_password"
+            type="password"
+            placeholder="Your password"
+          />
 
-            <Button type="submit">Confirm changes</Button>
-          </Form>
-        </Container>
-      </AnimateSharedLayout>
-    </>
+          <span>New password</span>
+          <Input name="password" type="password" placeholder="Password" />
+
+          <span>Confirm password</span>
+          <Input
+            name="password_confirmation"
+            type="password"
+            placeholder="Confirm password"
+          />
+
+          <Button type="submit">Confirm changes</Button>
+        </Form>
+      </Container>
+    </AnimateSharedLayout>
   );
 };
 export default Profile;

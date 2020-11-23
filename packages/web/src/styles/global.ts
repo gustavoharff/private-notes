@@ -16,6 +16,22 @@ export const GlobalStyle = createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #555;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #888;
+    }
   }
 
   #root {

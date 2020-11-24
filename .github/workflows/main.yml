@@ -17,7 +17,7 @@ jobs:
           node-version: 14.x
           
       - name: Go to server folder
-        run: cd ./packages/server
+        run: cd /home/runner/work/private-notes/private-notes/packages/server
 
       - name:  Install dependencies
         run: yarn

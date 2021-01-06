@@ -21,7 +21,7 @@ class Note {
   @Column()
   content: string;
 
-  @Column()
+  @Column({ nullable: true })
   user_id: string;
 
   @ManyToOne(() => User)

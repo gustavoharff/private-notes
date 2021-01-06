@@ -19,7 +19,7 @@ jobs:
       - name: Go to server folder
         run: cd /home/runner/work/private-notes/private-notes/packages/server
 
-      - name:  Install dependencies
+      - name: Install dependencies
         run: yarn
 
       - name: Run build

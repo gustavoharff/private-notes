@@ -50,7 +50,7 @@
     "@svgr/webpack": "5.4.0",
     "@types/electron-devtools-installer": "2.2.0",
     "@types/react": "16.9.49",
-    "@types/react-dom": "16.9.8",
+    "@types/react-dom": "16.9.10",
     "@types/react-modal": "3.10.6",
     "@types/react-router-dom": "5.1.5",
     "@types/styled-components": "5.1.3",
